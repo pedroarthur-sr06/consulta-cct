@@ -1,0 +1,29 @@
+﻿CCT DOS POSTOS — MT - Sinop, Lucas do Rio Verde, Nova Mutum e Comodoro
+Atualizado em 23/10/2026
+
+Situação: Vigente — confirmada no Mediador
+CCT: MT000190/2026
+Vigência: 01/03/2026 a 28/02/2027 (data-base 1º de março)
+Sindicato dos empregados: SINPOSPETRO-MT — CNPJ 14.883.140/0001-60
+Sindicato patronal: Sind. Varejista de Derivados de Petróleo de MT — CNPJ 14.953.517/0001-00
+Termos aditivos: MT000318/2026 — contribuição patronal
+Piso do frentista: R$ 1.685,00 + periculosidade, desde 01/03/2026 (fonte: CCT MT000190/2026, cláusula de piso)
+Texto oficial / fonte: https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR019000/2026
+
+POSTOS (4)
+- CONQUISTA — Sinop/MT
+    RUA BRASIL, Nº 110, LOTEAMENTO AUTO DA GLORIA - 78.558-448 - SINOP - MT
+    Mapa: https://www.google.com/maps?q=-11.98307306,-55.51656806
+- SABIÁ — Lucas do Rio Verde/MT
+    AVENIDA DA PRODUÇÃO, BANDEIRANTES - 78.455-000 - LUCAS DO RIO VERDE - MT
+    Mapa: https://www.google.com/maps?q=-13.07313167,-55.93193056
+- POSTO 29 - COMELLI — Nova Mutum/MT
+    AV. PERIMETRAL DAS SAMAMBAIAS 1680 W - NOVA MUTUM - MT
+    Mapa: https://www.google.com/maps?q=-13.835125,-56.083494
+- COMODORO — Comodoro/MT
+    AVENIDA MATO GROSSO, QUADRA 08 LOTE 01, CENTRO - 78310-000 - COMODORO - MT
+    Mapa: https://www.google.com/maps?q=-13.659998,-59.793195
+
+ARQUIVOS NESTA PASTA
+- CCT 2026-2027 - MT000190-2026.doc (texto registrado no Mediador; abre no Word)
+- Aditivo 2026 - contribuição patronal - MT000318-2026.doc (texto registrado no Mediador; abre no Word)

@@ -1,0 +1,807 @@
+
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>
+        Mediador - Extrato Termo Aditivo de Conven&#231;&#227;o Coletiva
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G"></script>
+
+    <script src='/sistemas/mediador/WebResource.axd?d=YhLEG4nKzX2g1e0AK6r-EXFj3WlrVGtlGx_hKvFz03ChudeMrkmATv29ZJeAJMl6gSat2ENJOxRQOx7IwqfcwHVTQDLU3RR_7KRhoV1ekc7h_YqtCfz2IMQKMkyLujdp_uJdKRxYfwWelyTzI96cqd4LJeDjma_cJvckco1QkrJwrdNWsiRTmjOkbAvESHdx0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=wurYFAWGN145AAKjF37xAV4H0DOOic3VyQoJflTzHgzYoqqiP0p8hFFBvK0Ogd_ML4_md20IkukmfcFCnEfGut_Vh7zEqGFCNTRE_AIDk8j2b_akLr4PxtlkHkRW7eXDoO5YJLlcaN8j8HvYw0WyBOILsORr9RDkzoxPXnDhockhFpx64fAA70Z_ux10vzBWwYNCFuVCSSEaxrWXzaA91g2&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=ThPYYYeX2RoHd5WHApynFg_Lt3ARTKmGDTTnBZOg1IgtZenthuAnxqdXr8B4snQqINn0sG6193xRUE0HDddJsTxgTspZkCXEMoXEQMoCCG5h-SYP-M4c8MjCfLnii-2GphUqqUatbmHKvftBLrp96yWqJdqjtSMbKThnaS_0GaOvscs0dYRJ4upSbcR_gnd10&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=S159mNIU8z5IyeB5RVc7jW8t3Bs333S0KhFgeAwoB6C31ihvuqOHqiieCExkfrvcBWfQsf4KF7ohCmhv1Un9vdVpVAgLOmBjL-OoglBBuZUi8_dEFyhRvta8LyPizsqnxxzqL3TBRvkM87ffxtoDa-63XRp0izdes8712uWhPpsxgj7vlbK_3frKVQCoH83g0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=VZ0gkpEN9nMD8QDNW7ZIyXs_yqFi-0drVn2xY9qW787mboEmJ2WYvSjEijD33Zmlc81KfnZpQaA4FFMQK27dkI45FSoj1yRD0PbbkUJGcrnbZ_gREv17E_j1A-mvt2TnEdIIN1YulKfbg7O3PpQFFcJ945y_7MiYRCg6m9-wpAcXsp3lQiUHywpnq3TRWWrh0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=gu4qsSjOR0lguFSUZhEo6V-AiJfOgdVssEdfoSq7XOFDCgaVXYRpRtRDuPmIESYrFRcW9WL2i8qZiy1YhGpVW_N75CKkoviuQYtxpEYyPxhqu-HAlFX6LoRMJqXtqTRxiYDwsF5nSANfS6BhsP78Fo7m_rjxAd21UHA9xpGuyfYPNMgLEAv6dqCQcVq4rnyF0&t=639193666532168144' type='text/javascript'></script>
+
+
+<script type="text/javascript">
+        var recaptchaSiteKey = '6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G';
+        var pageLoadToken = '';
+        var isPageValidated = false;
+
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA carregado, validando página...');
+            executePageLoadRecaptcha();
+        }
+
+        function executePageLoadRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                console.error('reCAPTCHA não carregado');
+                return;
+            }
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(recaptchaSiteKey, {
+                    action: 'page_load_resumo'
+                }).then(function(token) {
+                    console.log('Token de página gerado');
+                    pageLoadToken = token;
+
+                    // Enviar o token para o servidor
+                    validatePageLoadToken(token);
+                }).catch(function(error) {
+                    console.error('Erro no reCAPTCHA de página:', error);
+                    // Em desenvolvimento, permitir continuar
+                });
+            });
+        }
+
+        function validatePageLoadToken(token) {
+            var currentUrl = window.location.href;
+            var queryString = window.location.search;
+            var nrSolicitacao = 'MR045088/2026';
+
+            $.ajax({
+                url: '/sistemas/mediador/Resumo/ValidateResumoPageLoad',
+                type: 'POST',
+                data: {
+                    recaptchaToken: token,
+                    currentUrl: currentUrl,
+                    queryString: queryString,
+                    nrSolicitacao: nrSolicitacao
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Página validada com sucesso');
+                        isPageValidated = true;
+                        showPageContent();
+                    } else {
+                        console.warn('Validação de página falhou:', response.message);
+                        handleValidationFailed(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao validar página:', error);
+                    handleValidationFailed({ message: 'Erro de comunicação com o servidor' });
+                }
+            });
+        }
+
+        function showPageContent() {
+            // Remover overlay de loading se existir
+            $('#recaptcha-loading').remove();
+            console.log('Conteúdo da página liberado');
+        }
+
+        function handleValidationFailed(response) {
+            // Mostrar mensagem de erro
+            var errorHtml = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <div style="text-align: center; padding: 20px;">
+                        <h2 style="color: #d32f2f;">Validação de Segurança</h2>
+                        <p style="font-size: 16px; margin: 20px 0;">${response.message || 'Falha na validação de segurança.'}</p>
+                        <button onclick="window.location.reload()" style="padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Tentar Novamente
+                        </button>
+                        <br><br>
+                        <button onclick="window.location.href='/sistemas/mediador/'" style="padding: 8px 16px; background: #757575; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Voltar para Página Inicial
+                        </button>
+                    </div>
+                </div>
+            `;
+            $('body').prepend(errorHtml);
+        }
+
+        $(document).ready(function() {
+            console.log('Página carregada - ambiente de produção');
+
+            // Pular validação reCAPTCHA em produção
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.log('Produção - validando sem reCAPTCHA');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 1000);
+
+            // Timeout de segurança reduzido
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.warn('Timeout na validação - liberando conteúdo');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 5000); // Reduzido para 5 segundos
+        });
+
+        function Imprimir() {
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "none";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "none";
+            window.print();
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "";
+            return true;
+        }
+        $(function () {
+            var marcaDaguaHtml = $('.MarcaDagua').html();
+            var width = $('body').width();
+            var marcaW = $('.MarcaDagua').width();
+
+            var qtdNescessarios = Math.round((width / marcaW) + 0.4);
+            if (qtdNescessarios > 0)
+                for (var incrementador = 0; incrementador < qtdNescessarios; incrementador++) {
+                    $('.MarcaDagua').append("<br />");
+                    $('.MarcaDagua').append(marcaDaguaHtml);
+                }
+        });
+
+
+</script>
+    <style type="text/css">
+        .titulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .Subtitulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        .texto
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .tituloClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .descricaoClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .textogrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .textosubgrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .textonome
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .textofuncao
+        {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .pagebreak
+        {
+            page-break-after: always;
+        }
+        table.titulo
+        {
+            text-align: left;
+        }
+        @page Section2 {size:21cm 29.7cm ;mso-page-orientation:portrait;margin-top:2cm; margin-rigth:2cm; mso-paper-source:0;}
+        div.Section2 {page:Section2;}
+        pre
+        {
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            white-space: normal;
+        }
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="Section2">
+
+        <center>
+            <table border="0" style="width: 18cm;" id="tblConteudo">
+                <tr>
+                    <td>
+                        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+
+                                                            <tr>
+                                    <td align="center" class="titulo" style="text-transform: uppercase;">
+                                        <b>
+                                            Termo Aditivo a Conven&#231;&#227;o Coletiva De Trabalho 2026/2027
+                                        </b>
+                                        <br />
+                                        <br />
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    <div style="text-align: left;">
+                                        <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <b>NÚMERO DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        PB000335/2026
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        27/07/2026
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>NÚMERO DA SOLICITAÇÃO:</b>
+                                                </td>
+                                                <td style="width: 10px">
+                                                </td>
+                                                <td>
+                                                    MR045088/2026
+                                                </td>
+                                            </tr>
+                                                                                            <tr>
+                                                    <td>
+                                                        <b>NÚMERO DO PROCESSO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        13090.201209/2026-16
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DO PROTOCOLO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+24/07/2026                                                    </td>
+                                                </tr>
+                                        </table>
+                                        <br />
+
+                                                    <br />
+                                                    <br />
+                                                    <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td>
+                                                                <b>
+                                                                    N&#218;MERO DO PROCESSO  DA CONVEN&#199;&#195;O COLETIVA PRINCIPAL:
+                                                                </b>
+                                                            </td>
+                                                            <td style="width: 10px">
+                                                            </td>
+                                                            <td>
+                                                                13090.201069/2026-86
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>
+                                                                    DATA DE REGISTRO  DA CONVEN&#199;&#195;O COLETIVA PRINCIPAL:
+                                                                </b>
+                                                            </td>
+                                                            <td style="width: 10px">
+                                                            </td>
+                                                            <td>
+08/07/2026                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                        <p>
+                                                            <label class="texto">
+                                                                <b>
+                                                                    Confira a autenticidade no endereço http://www3.mte.gov.br/sistemas/mediador/.
+                                                                </b>
+                                                            </label>
+                                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="texto">
+                                    <p align="justify">
+SIND DOS EMP EM POSTOS DE SERV DE COMB E DER PET EST PB, CNPJ n. 24.507.923/0001-00, neste ato representado(a) por seu 
+
+Presidente, Sr(a). GERALDO ALVES FRAZAO NETO PORCINO;
+    <br />
+&nbsp;
+    <br />
+                                        <label>
+                                            E
+                                        </label>
+                                        <br />
+                                        <br />
+SIND DO COM VAREJ DERIV PETROLEO NO ESTADO DA PARAIBA, CNPJ n. 08.987.695/0001-59, neste ato representado(a) por seu 
+
+Presidente, Sr(a). OMAR ARISTIDES HAMAD FILHO;
+    <br />
+&nbsp;
+    <br />
+                                                                                    celebram
+                                                                                    o
+                                         presente TERMO ADITIVO DE CONVEN&#199;&#195;O COLETIVA DE TRABALHO,
+ estipulando as condi&#231;&#245;es de trabalho previstas nas cl&#225;usulas seguintes:                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA PRIMEIRA - VIG&#202;NCIA E DATA-BASE
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    As partes fixam a vigência do presente Termo Aditivo de Convenção Coletiva de Trabalho no período de 01º de março de 2026 a 28 de fevereiro de 2027 e a data-base da categoria em 01º de março.
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA SEGUNDA - ABRANG&#202;NCIA
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    O presente Termo Aditivo de Convenção Coletiva de Trabalho abrangerá a(s) categoria(s) <b>Empregados em Postos de Serviços de Combustíveis e Derivado de Petróleo                                  </b>, com abrangência territorial em <b>Água Branca/PB, Aguiar/PB, Alhandra/PB, Aparecida/PB, Araçagi/PB, Araruna/PB, Areia de Baraúnas/PB, Baía da Traição/PB, Bayeux/PB, Belém do Brejo do Cruz/PB, Bernardino Batista/PB, Boa Ventura/PB, Bom Jesus/PB, Bom Sucesso/PB, Bonito de Santa Fé/PB, Brejo dos Santos/PB, Caaporã/PB, Cabedelo/PB, Cachoeira dos Índios/PB, Cacimbas/PB, Caiçara/PB, Cajazeirinhas/PB, Capim/PB, Carrapateira/PB, Catingueira/PB, Conde/PB, Cruz do Espírito Santo/PB, Cuité de Mamanguape/PB, Cuitegi/PB, Curral de Cima/PB, Curral Velho/PB, Diamante/PB, Duas Estradas/PB, Emas/PB, Guarabira/PB, Gurinhém/PB, Ibiara/PB, Igaracy/PB, Itabaiana/PB, Itapororoca/PB, Jacaraú/PB, Jericó/PB, João Pessoa/PB, Joca Claudino/PB, Juru/PB, Lagoa de Dentro/PB, Lagoa/PB, Lastro/PB, Logradouro/PB, Lucena/PB, Mãe d'Água/PB, Mamanguape/PB, Manaíra/PB, Marcação/PB, Mari/PB, Marizópolis/PB, Mataraca/PB, Mato Grosso/PB, Maturéia/PB, Mulungu/PB, Nazarezinho/PB, Olho d'Água/PB, Passagem/PB, Paulista/PB, Pedra Branca/PB, Pedras de Fogo/PB, Pedro Régis/PB, Pilar/PB, Pilõezinhos/PB, Pitimbu/PB, Poço Dantas/PB, Poço de José de Moura/PB, Quixaba/PB, Riachão do Bacamarte/PB, Riachão do Poço/PB, Riacho dos Cavalos/PB, Rio Tinto/PB, Salgadinho/PB, Salgado de São Félix/PB, Santa Cecília/PB, Santa Cruz/PB, Santa Inês/PB, Santa Luzia/PB, Santa Teresinha/PB, Santana de Mangueira/PB, Santana dos Garrotes/PB, São Bentinho/PB, São Domingos/PB, São Francisco/PB, São João do Rio do Peixe/PB, São José da Lagoa Tapada/PB, São José de Caiana/PB, São José de Espinharas/PB, São José de Piranhas/PB, São José de Princesa/PB, São José do Bonfim/PB, São José do Brejo do Cruz/PB, São José do Sabugi/PB, São José dos Ramos/PB, São Miguel de Taipu/PB, Sapé/PB, Serra da Raiz/PB, Serra Grande/PB, Sertãozinho/PB, Sobrado/PB, Tacima/PB, Triunfo/PB, Várzea/PB, Vieirópolis/PB e Vista Serrana/PB</b>.
+                                                </label>
+                                                <br />
+                                    </p>
+
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Disposições Gerais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras Disposições
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TERCEIRA - EXCLUS&#195;O DA CL&#193;USULA 17&#170;
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>SEGURO DE VIDA E ACIDENTES PESSOIAIS - OBRIGAT&Oacute;RIOS Inteiramente &agrave;s suas expensas, os P Revendedores celebrar&atilde;o contrato de seguro de vida e de acidentes pessoais em favor de seus empregados,<br />observando as seguintes coberturas:</p>
+<p><br />GARANTIAS LIMITE M&Iacute;NIMO DE INDENIZA&Ccedil;&Atilde;O<br />a) R$ 16.908,46 (dezesseis mil, novecentos e oito reais e quarenta e seis centavos) em caso de morte do empregado, independentemente do local ocorrido .<br />b) R$ 16.908,46 (dezesseis mil, novecentos e oito reais e quarenta e seis centavos) em caso de invalidez total ou permanente por acidente.<br />c) R$ 16.908,46 (dezesseis mil, novecentos e oito reais e quarenta e seis centavos) em caso de invalidez total ou permanente por doen&ccedil;a adquirida no exerc&iacute;cio profissional.<br />A partir da assinatura deste aditivo, a referida cl&aacute;usula deixa de produzir efeito, n&atilde;o podendo ser invocada por qualquer das partes.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUARTA - EXCLUS&#213;ES DAS CL&#193;USULAS 23&#170; E 24&#170;
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Fica exclu&iacute;da integralmente da Conven&ccedil;&atilde;o Coletiva de Trabalho a Cl&aacute;usula Vig&eacute;sima Terceira e seus respectivos par&aacute;grafos, que tratava sobre : Jornada de Trabalho &ndash; Dura&ccedil;&atilde;o, Distribui&ccedil;&atilde;o, Controle, Faltas dos empregados abrangidos nesta Conven&ccedil;&atilde;o Coletiva de Trabalho e a Cl&aacute;usula Vig&eacute;sima Quarta e seus respectivos par&aacute;grafos, que tratava sobre Compensa&ccedil;&atilde;o de Jornada.</p>
+<p><strong>CL&Aacute;USULA VIG&Eacute;SIMA TERCEIRA - </strong>jornada de trabalho dos empregados abrangidos nesta Conven&ccedil;&atilde;o Coletiva de Trabalho ser&aacute; de 8 (oito) horas di&aacute;rias e 44 (quarenta e quatro) semanais, com intervalo m&iacute;nimo de 1 (uma) hora e de 2 (duas) horas no m&aacute;ximo, para descanso e alimenta&ccedil;&atilde;o, que se encontra exclu&iacute;do da jornada efetivamente trabalhada.</p>
+<p><strong>PAR&Aacute;GRAFO PRIMEIRO</strong>: Fica assegurado aos postos revendedores praticar jornada de trabalho em escala de revezamento de 12 (doze) horas de trabalho, com 1 (uma) hora de intervalo intrajornada para descanso e alimenta&ccedil;&atilde;o, seguida de 36 (trinta e seis) horas consecutivas de repouso.</p>
+<p><strong>PAR&Aacute;GRAFO SEGUNDO</strong>: Fica terminantemente proibida a pr&aacute;tica de horas extras pelos empregados que trabalham na escala de revezamento de 12 (doze) horas de trabalho por 36 (trinta e seis) horas de descanso consecutivas.</p>
+<p><strong>PAR&Aacute;GRAFO TERCEIRO</strong>: Para aqueles que trabalharem em jornada de 12/36, o pagamento do adicional de periculosidade ser&aacute; quantificado sobre a remunera&ccedil;&atilde;o mensal e n&atilde;o sobre os dias trabalhados.</p>
+<p><strong>PAR&Aacute;GRAFO QUARTO</strong>: De acordo com a Portaria MTE/ME n&ordm; 1.510/2009, que disciplina a anota&ccedil;&atilde;o de hor&aacute;rio de trabalho por meio eletr&ocirc;nico, conforme previsto no art. 74, &sect; 2&ordm; da CLT, a empresa com mais de 20 (vinte) empregados poder&aacute; fazer op&ccedil;&atilde;o por sistema manual, mec&acirc;nico ou eletr&ocirc;nico de registro de jornada. Pode, inclusive, adotar mais de um desses sistemas dentro da mesma empresa ou estabelecimento.</p>
+<p><strong>PAR&Aacute;GRAFO QUINTO</strong>: Entende-se como sistema eletr&ocirc;nico de registro de ponto qualquer sistema de controle de jornada que utilize meios eletr&ocirc;nicos para identificar o empregado, tratar, armazenar ou enviar qualquer tipo de informa&ccedil;&atilde;o de marca&ccedil;&atilde;o de ponto.</p>
+<p><strong>PAR&Aacute;GRAFO SEXTO</strong>: A empresa que adotar o SREP (Sistema de Registro Eletr&ocirc;nico de Ponto) poder&aacute; a qualquer momento mudar para o sistema manual ou mec&acirc;nico.</p>
+<p><strong>Par&aacute;grafo &Uacute;nico </strong>&ndash; O trabalho aos domingos e feriados ser&aacute; remunerado em dobro, exceto se o empregador determinar outro dia de folga compensat&oacute;ria. A folga compensat&oacute;ria para o trabalho aos domingos corresponder&aacute; ao repouso semanal remunerado.</p>
+<p><strong>CL&Aacute;USULA VIG&Eacute;SIMA QUARTA </strong>- HORAS EXTRAS (COMPENSA&Ccedil;&Atilde;O) As horas extraordin&aacute;rias, desde que limitadas ao m&aacute;ximo de 2 (duas) horas por dia, ser&atilde;o remuneradas com acr&eacute;scimo de 50% (cinquenta por cento), sobre o valor da hora normal, calculadas com base no valor da remunera&ccedil;&atilde;o mensal.</p>
+<p>&nbsp;</p>
+<p><strong>PAR&Aacute;GRAFO PRIMEIRO</strong>: &Eacute; vedado ao empregador exigir do seu empregado mais de 2 (duas) horas extras no mesmo dia de trabalho. No caso de necessidade de servi&ccedil;o, o hor&aacute;rio extraordin&aacute;rio que exceder ao limite de 02 (duas) horas di&aacute;rias, dever&aacute; ser remunerado com acr&eacute;scimo de 70% (setenta por cento) do valor da hora normal para a 3&ordf; (terceira) hora extra. Para a 4&ordf; (quarta) hora extra, acr&eacute;scimo de 80% (oitenta por cento) do valor da hora normal; para a 5&ordf; (quinta) hora extra, acr&eacute;scimo de 90% (noventa por cento) do valor da hora normal e assim sucessivamente, em qualquer dia da semana, sem preju&iacute;zo do descanso semanal remunerado.</p>
+<p><strong>PAR&Aacute;GRAFO SEGUNDO</strong>: Para jornada normal de trabalho de 44 (quarenta e quatro) horas semanais, o trabalho prestado em domingos e feriados, quando n&atilde;o compensado, dever&aacute; ser pago em dobro, sem preju&iacute;zo da remunera&ccedil;&atilde;o relativa ao repouso semanal, conforme intelig&ecirc;ncia das S&uacute;mulas n&uacute;meros 146 e 444 do TST.</p>
+<p><strong>PAR&Aacute;GRAFO TERCEIRO</strong>: &Eacute; autorizado o trabalho aos domingos, sem preju&iacute;zo do descanso semanal remunerado (DSR), e observada a concess&atilde;o de folga aos domingos, a cada 03 (tr&ecirc;s) domingos trabalhados.</p>
+<p><strong>PAR&Aacute;GRAFO QUARTO</strong>: Os empregados que prestarem servi&ccedil;os em dias de domingo ter&atilde;o assegurada a sua folga dentro da mesma semana em que for programada a realiza&ccedil;&atilde;o do trabalho naqueles dias, de modo que a concess&atilde;o do repouso semanal remunerado n&atilde;o ultrapasse do 7&ordm; (s&eacute;timo) dia consecutivo de trabalho, n&atilde;o podendo, evidentemente, recair tal folga em dia feriado.</p>
+<p><strong>PAR&Aacute;GRAFO QUINTO</strong>: Fica estabelecido que a cada 6 (seis) dias laborados, o 7&ordm; (s&eacute;timo) dia ser&aacute; a folga.</p>
+<p><strong>PAR&Aacute;GRAFO &Uacute;NICO</strong>: Para a jornada de 12 (doze) horas de trabalho, seguidas de 36 (trinta e seis) horas de repouso, n&atilde;o se aplica a previs&atilde;o desta Cl&aacute;usula Caput desta Conven&ccedil;&atilde;o, com rela&ccedil;&atilde;o aos dias de domingo e feriados, uma vez que j&aacute; existe a compensa&ccedil;&atilde;o com descanso de 36 (trinta e seis) horas.</p>
+<p>A partir da assinatura deste aditivo, as referidas cl&aacute;usulas deixaran de produzirem efeitos, n&atilde;o podendo ser invocadas por qualquer das partes.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUINTA - EXCLUS&#195;O DA CL&#193;USULA 26&#170;
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>CL&Aacute;USULA VIG&Eacute;SIMA SEXTA &ndash; As empresas dever&atilde;o providenciar a realiza&ccedil;&atilde;o de exames m&eacute;dicos para admiss&atilde;o, demiss&atilde;o, peri&oacute;dicos e para altera&ccedil;&atilde;o de fun&ccedil;&atilde;o de seus empregados, arcando com o &ocirc;nus deles decorrentes, preferencialmente por M&eacute;dico do Trabalho ou de entidades conveniadas contratadas pelo empregador, em cumprimento ao estabelecido na NR 07 expedida pelo Minist&eacute;rio do Trabalho e Emprego, atual Minist&eacute;rio do Trabalho e Previd&ecirc;ncia.</p>
+<p><br /><strong>PAR&Aacute;GRAFO PRIMEIRO:</strong> Fica estipulado que a periodicidade do exame m&eacute;dico &eacute; anual.</p>
+<p><br /><strong>PAR&Aacute;GRAFO SEGUNDO:</strong> Caso os exames sejam realizados durante o hor&aacute;rio normal de t rabalho, o empregado n&atilde;o ter&aacute; preju&iacute;zo da sua remunera&ccedil;&atilde;o naqueles dias. A partir da assinatura deste aditivo, a referida cl&aacute;usula deixa de produzir efeitos, n&atilde;o podendo ser invocada por qualquer das partes.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA SEXTA - INCLUS&#195;O DE NOVA CL&#193;USULA - SEGURO DE VIDA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <div class="WordSection1">
+<p>As empresas dever&atilde;o pagar integralmente um <strong>seguro de vida e acidentes pessoais </strong>para todos os seus empregados, de <strong>livre escolha pelo empregador</strong>, no valor de <strong>R$ 7,50 (sete reais e cinquenta centavos) mensais por empregado</strong>.</p>
+<p><strong>Par&aacute;grafo Primeiro </strong>&ndash; As coberturas e o capital segurado dever&atilde;o observar as seguintes garantias m&iacute;nimas:</p>
+<p align="left">&nbsp;</p>
+<table class="TableGrid" style="width: 705px; height: 598px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="603">
+<p align="left">&nbsp;</p>
+<table class="TableGrid" style="width: 601px; height: 541px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="center"><strong>GARANTIAS </strong></p>
+</td>
+<td colspan="2" valign="top" width="164">
+<p align="left"><strong>CAPITAL SEGURADO </strong></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Morte por Qualquer Causa</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>20.000,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Invalidez Permanente Total ou Parcial por Acidente</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>20.000,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Invalidez Laborativa Permanente Total por Doen&ccedil;a</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>20.000,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Garantia de Assist&ecirc;ncia Funeral Individual &ndash; Morte por Qualquer Causa</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>5.000,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Despesas M&eacute;dicas, Hospitalares e Odontol&oacute;gicas.</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>5.000,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">DIH &ndash; Di&aacute;ria de Interna&ccedil;&atilde;o Hospitalar &ndash; UTI</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>5.225,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Di&aacute;ria por Incapacidade Tempor&aacute;ria por Acidente</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p>1.800,00</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="429">
+<p align="left">Auxilio Alimenta&ccedil;&atilde;o</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p align="right">516,00</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="285">
+<p align="left">&nbsp;</p>
+</td>
+<td valign="top" width="144">
+<p align="right">Valor Total por Vida</p>
+</td>
+<td valign="top" width="103">
+<p align="left">R$</p>
+</td>
+<td valign="top" width="60">
+<p align="right">7,50</p>
+</td>
+</tr>
+<tr>
+<td colspan="4" valign="top" width="593">
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="285">&nbsp;</td>
+<td width="144">&nbsp;</td>
+<td width="103">&nbsp;</td>
+<td width="60">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p align="left">&nbsp;</p>
+</td>
+<td valign="bottom" width="88">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<p align="left">&nbsp;</p>
+<table class="TableGrid" style="width: 0px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="285">
+<p align="left">&nbsp;</p>
+</td>
+<td valign="top" width="144">
+<p align="left">&nbsp;</p>
+</td>
+<td valign="top" width="164">
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p align="left">&nbsp;</p>
+<p>&nbsp;<strong>Di&aacute;ria por Incapacidade Tempor&aacute;ria por Acidente </strong>&ndash; Em caso de <strong>incapacidade cont&iacute;nua e ininterrupta </strong>do segurado titular para exercer sua ocupa&ccedil;&atilde;o principal, decorrente de acidente, a partir do <strong>16&ordm; dia de afastamento</strong>, ser&aacute; concedida uma indeniza&ccedil;&atilde;o de <strong>R$ 16,38 (dezesseis reais e trinta e oito centavos) por dia</strong>, limitada a <strong>90 di&aacute;rias</strong>, a ser paga em <strong>uma &uacute;nica vez </strong>como indeniza&ccedil;&atilde;o;</p>
+<p>&nbsp;<strong>Aux&iacute;lio Funeral &ndash; Familiar </strong>&ndash; Cobertura das <strong>despesas funer&aacute;rias </strong>em caso de falecimento do segurado titular ou de seus dependentes legais, com <strong>reembolso de at&eacute; R$ 5.000,00 (cinco mil reais)</strong>, mediante comprova&ccedil;&atilde;o das despesas;</p>
+<p>&nbsp;<strong>Morte &ndash; Certa B&aacute;sica &ndash; Aux&iacute;lio Alimenta&ccedil;&atilde;o Titular </strong>&ndash; Em caso de <strong>falecimento do segurado titular</strong>, ser&aacute; concedida aos seus dependentes legais uma <strong>indeniza&ccedil;&atilde;o &uacute;nica de R$ 516,00 (quinhentos e dezesseis reais) </strong>a t&iacute;tulo de <strong>aux&iacute;lio alimenta&ccedil;&atilde;o</strong>.</p>
+<p><strong>Par&aacute;grafo Segundo </strong>&ndash; A contrata&ccedil;&atilde;o da <strong>ap&oacute;lice de seguro de vida </strong>poder&aacute; ser realizada junto aos <strong>indicados convenentes</strong>, por meio de <strong>ades&atilde;o ao plano oferecido aos seus filiados</strong>, ou o empregador poder&aacute; optar por <strong>qualquer outra seguradora ou corretora de seguros de sua prefer&ecirc;ncia</strong>, desde que respeite as <strong>coberturas e garantias m&iacute;nimas </strong>descritas no <strong>Par&aacute;grafo Primeiro; </strong></p>
+<p><strong>Par&aacute;grafo Terceiro </strong>&ndash; <strong>N&atilde;o ser&aacute; permitida </strong>a cobertura do seguro de vida por <strong>seguro de distribuidora de combust&iacute;veis, distribuidora de lubrificantes ou qualquer outra distribuidora</strong>, bem como <strong>seguro predial; </strong></p>
+<p><strong>Par&aacute;grafo Quarto </strong>&ndash; A <strong>n&atilde;o contrata&ccedil;&atilde;o </strong>do seguro com as <strong>coberturas e garantias m&iacute;nimas </strong>descritas no <strong>Par&aacute;grafo Primeiro </strong>e suas al&iacute;neas acarretar&aacute; o <strong>descumprimento desta Conven&ccedil;&atilde;o Coletiva de Trabalho</strong>, conforme disciplina a <strong>Cl&aacute;usula Quadrag&eacute;sima Terceira</strong>, e <strong>n&atilde;o exime a responsabilidade do empregador</strong>, que dever&aacute; <strong>arcar com os pagamentos das garantias previstas nesta cl&aacute;usula por meio de recursos pr&oacute;prios; </strong></p>
+<p><strong>Par&aacute;grafo Quinto </strong>&ndash; Fica estabelecido que a <strong>data de in&iacute;cio de vig&ecirc;ncia </strong>desta cl&aacute;usula e da cobertura do seguro ser&aacute; <strong>1&ordm; de mar&ccedil;o de 2026; </strong></p>
+<p><strong>Par&aacute;grafo Sexto </strong>&ndash; As empresas que j&aacute; possuam <strong>seguro de vida e acidentes pessoais </strong>de sua livre escolha, contemplando os <strong>capitais segurados e garantias m&iacute;nimas </strong>previstas no <strong>caput </strong>desta cl&aacute;usula, dever&atilde;o apresentar <strong>c&oacute;pias da ap&oacute;lice </strong>no prazo de <strong>30 (trinta) dias </strong>ap&oacute;s o <strong>registro na Secretaria de Trabalho do Minist&eacute;rio e Emprego </strong>desta Conven&ccedil;&atilde;o Coletiva de Trabalho;</p>
+<p><strong>Par&aacute;grafo S&eacute;timo </strong>&ndash; O valor de <strong>R$ 7,50 (sete reais e cinquenta centavos) </strong>poder&aacute; ser <strong>corrigido anualmente</strong>, desde que <strong>n&atilde;o ultrapasse o percentual de reajuste concedido &agrave; categoria; </strong></p>
+<p><strong>Par&aacute;grafo Oitavo </strong>&ndash; A <strong>ap&oacute;lice de seguro de vida e acidentes pessoais vigente</strong>, juntamente com o <strong>comprovante de pagamento</strong>, dever&aacute; ser apresentada ao <strong>Sindicato. </strong></p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA S&#201;TIMA - INCLUS&#195;O DE NOVA CL&#193;USULA - JORNADA DE TRABALHO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Fica ajustado, consoante o permissivo legal previsto no art. 7&ordm;, incisos XIII e XXVI, da Constitui&ccedil;&atilde;o Federal, que os empregadores poder&atilde;o adotar, al&eacute;m da jornada de 08 (oito) horas di&aacute;rias, a jornada de 07h20 (sete horas e vinte minutos) em escala 6x1 ou 5x1. Vejamos as seguintes escalas de servi&ccedil;o:</p>
+<ul>
+<li>5x1: Jornada com dura&ccedil;&atilde;o de 7h20min di&aacute;rias, garantido o intervalo intrajornada m&iacute;nimo de 40 minutos. A folga ser&aacute; resguardada atrav&eacute;s de escala derevezamento, garantindo mensalmente, pelo menos, 01 (uma) folga por m&ecirc;s, concedida aos domingos.</li>
+<li>6x1:Jornada de trabalho com dura&ccedil;&atilde;o de 7h20min di&aacute;rias, com intervalo intrajornada m&iacute;nimo de 40 minutos. A folga ser&aacute;r esguardada atrav&eacute;s de escala de revezamento, garantindo mensalmente, 01 (uma) folga por m&ecirc;s, concedida aos domingos.</li>
+</ul>
+<p><strong>Par&aacute;grafo Primeiro </strong>&ndash; Para as empresas que, facultativamente, concederem hor&aacute;rio para lanche, tamb&eacute;m n&atilde;o secomputar&atilde;o na jornada de trabalho esses intervalos de no m&iacute;nimo 10 (dez) minutos em cada turno, manh&atilde;, tarde ounoite, desde que inscritos na folha de ponto do empregado.</p>
+<p><strong>Par&aacute;grafo Segundo </strong>&ndash; As horas que excederem este limite ser&atilde;o pagas com acr&eacute;scimo de 50% (cinquenta porcento), salvo se houver compensa&ccedil;&atilde;o ou banco de horas;</p>
+<p><strong>Par&aacute;grafo Terceiro </strong>- Os intervalos interjornadas dever&atilde;o ser discriminados em local vis&iacute;vel, nas fun&ccedil;&otilde;es previstas nessa Conven&ccedil;&atilde;o;</p>
+<p><strong>Par&aacute;grafo Quarto </strong>&ndash; Poder&aacute; haver, numa mesma empresa, tipos de jornadas de trabalho diferentes, desde que,havendo identidade de fun&ccedil;&atilde;o, com igual produtividade e com a mesma perfei&ccedil;&atilde;o t&eacute;cnica n&atilde;o havendo diferen&ccedil;ade tempo de servi&ccedil;o superior a quatro anos, nem diferen&ccedil;a de tempo na fun&ccedil;&atilde;o superior a dois anos, o valor dosal&aacute;rio-hora seja o mesmo;</p>
+<p><strong>Par&aacute;grafo Quinto </strong>&ndash; O trabalho aos domingos e feriados ser&aacute; remunerado em dobro, exceto se o empregador determinar outro dia de folga compensat&oacute;ria. A folga compensat&oacute;ria para o trabalho aos domingos corresponder&aacute; ao repouso semanal remunerado.</p>
+<p><strong>Par&aacute;grafo Sexto</strong>: se houver trabalho aos domingos, a empresa deve organizar uma escala de revezamento quinzenal para mulheres, garantindo repouso dominical a cada 15 dias, Portanto, a mulher n&atilde;o deve trabalhar dois domingos consecutivos mediante a Lei: (artigo 386 da CLT)</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA OITAVA - INCLUS&#195;O DE NOVA CL&#193;USULA - DA SUBSTITUI&#199;&#195;O - HORAS EXTRAS (COMPENSA&#199;&#195;O)
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>As empresas que assim desejarem, poder&aacute; estabelecer que as horas extras trabalhadas em um dia, poder&atilde;o sercompensadas com folgas em outro dia. Se o escolhido for &agrave; compensa&ccedil;&atilde;o, esta deve ocorrer dentro dos 30 (trinta)dias subsequentes &agrave; presta&ccedil;&atilde;o da hora extra. Caso adote o sistema de Banco de Horas, a compensa&ccedil;&atilde;o ocorrer&aacute;em at&eacute; 6 (seis) meses.</p>
+<p><strong>Par&aacute;grafo Primeiro </strong>&ndash; A compensa&ccedil;&atilde;o de horas, sob o sistema do Banco de Horas se far&aacute; na propor&ccedil;&atilde;o de 1 (uma)hora trabalhada por 1 (uma) hora de folga, e vice-versa;</p>
+<p><strong>Par&aacute;grafo Segundo </strong>&ndash; N&atilde;o poder&aacute; ser ultrapassado o limite m&aacute;ximo de 44 (quarenta e quatro) horas mensaistrabalhadas no sistema de Banco de Horas, bem como o somat&oacute;rio n&atilde;o poder&aacute; exceder as jornadas semanais dacategoria, nem &agrave;s (10) dez horas di&aacute;rias, sob pena das horas excedentes serem consideradas horas extras;</p>
+<p><strong>Par&aacute;grafo Terceiro </strong>&ndash; A escolha do dia para compensa&ccedil;&atilde;o pelo sistema de Banco de Horas ser&aacute; facultada a metadepor parte dos Empregadores e metade pelos Empregados;</p>
+<p><strong>Par&aacute;grafo Quarto </strong>&ndash; As partes dever&atilde;o avisar com anteced&ecirc;ncia m&iacute;nima de 10 (dez) dias a data de compensa&ccedil;&atilde;opelo sistema do Banco de Horas;</p>
+<p><strong>Par&aacute;grafo Quinto </strong>- Mensalmente ser&aacute; entregue ao Empregado um demonstrativo com as horas compens&aacute;veis pelosistema do Banco de Horas;</p>
+<p><strong>Par&aacute;grafo Sexto </strong>&ndash; N&atilde;o haver&aacute; antecipa&ccedil;&atilde;o de folgas pelas partes se n&atilde;o houver horas compens&aacute;veis pelo sistemado Banco de Horas;</p>
+<p><strong>Par&aacute;grafo S&eacute;timo </strong>&ndash; Quando da rescis&atilde;o do contrato de trabalho, se houver saldo de horas n&atilde;o compensadas, o empregador pagar&aacute; as horas extras no ato da homologa&ccedil;&atilde;o da rescis&atilde;o. Caso haja saldo negativo, as horas devidas pelo empregado ser&atilde;o descontadas nas verbas rescis&oacute;rias;</p>
+<p><strong>Par&aacute;grafo Oitavo </strong>&ndash; O prazo de cada per&iacute;odo ser&aacute; de 6 (seis) meses, com fechamento em janeiro e julho de cada ano.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA NONA - INCLUS&#195;O DE NOVA CL&#193;USULA - EXAMES M&#201;DICOS OCUPACIONAIS E PERIODICIDADE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>As empresas dever&atilde;o providenciar e custear a realiza&ccedil;&atilde;o dos exames m&eacute;dicos ocupacionais admissionais, peri&oacute;dicos, de retorno ao trabalho, de mudan&ccedil;a de riscos ocupacionais e demissionais de seus empregados, observando os prazos, crit&eacute;rios e procedimentos estabelecidos na Norma Regulamentadora n.&ordm; 7 &ndash; Programa de Controle M&eacute;dico de Sa&uacute;de Ocupacional &ndash; NR-7, no Programa de Controle M&eacute;dico de Sa&uacute;de Ocupacional &ndash; PCMSO da empresa e nas demais Normas Regulamentadoras aplic&aacute;veis.</p>
+<p><strong>PAR&Aacute;GRAFO PRIMEIRO </strong>- Os trabalhadores que exer&ccedil;am atividades com risco de exposi&ccedil;&atilde;o ocupacional ao benzeno dever&atilde;o realizar, com frequ&ecirc;ncia m&iacute;nima semestral, hemograma completo com contagem de plaquetas e reticul&oacute;citos, independentemente dos demais exames cl&iacute;nicos e complementares previstos no PCMSO, nos termos do item 6.1 do Anexo IV da Norma Regulamentadora n.&ordm; 20 &ndash; NR-20;</p>
+<p><strong>PAR&Aacute;GRAFO SEGUNDO </strong>- A realiza&ccedil;&atilde;o semestral do hemograma completo n&atilde;o substitui o exame cl&iacute;nico ocupacional nem os demais exames complementares definidos pelo m&eacute;dico respons&aacute;vel pelo PCMSO, de acordo com os riscos ocupacionais identificados no PGR.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA - CORRE&#199;&#195;O DE TEXTO – CORRE&#199;&#195;O ABONO DE FALTAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p><strong>ANTERIOR: </strong></p>
+<p>III &ndash; Por um dia, em caso de nascimento de filho , no decorrer da primeira semana.</p>
+<p><strong>NOVO TEXTO: </strong></p>
+<p>III &ndash; O Pai tem direito &aacute; 5 (cinco) dias consecutivos de afastamento remunerado apartir do nascimento do filho. As nova cl&aacute;usula entra em vigor na data da assinatura deste aditivo, permanecendo v&aacute;lida at&eacute; o t&eacute;rmino da vig&ecirc;ncia da Conven&ccedil;&atilde;o Coletiva de Trabalho, salvo se houver disposi&ccedil;&atilde;o em contr&aacute;rio. Ratifica&ccedil;&atilde;o das Demais Cl&aacute;usulas Permanecem ratificadas e inalteradas todas as demais cl&aacute;usulas da Conven&ccedil;&atilde;o Coletiva de Trabalho, que n&atilde;o foram modificadas pelo presente aditivo.</p>
+                                                </label>
+                                                <br />
+                                    }
+                                    <br />
+                                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                    <br />
+    <br />
+    <label class="textonome">
+        GERALDO ALVES FRAZAO NETO PORCINO
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SIND DOS EMP EM POSTOS DE SERV DE COMB E DER PET EST PB
+        <br />
+        <br />
+    </label>
+
+    <br />
+    <br />
+    <label class="textonome">
+        OMAR ARISTIDES HAMAD FILHO
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SIND DO COM VAREJ DERIV PETROLEO NO ESTADO DA PARAIBA
+        <br />
+        <br />
+    </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        <br />
+                                        <center>
+                                            <label class="textogrupo">
+                                                <b>ANEXOS </b>
+                                            </label>
+                                        </center>
+                                                        <label>
+                                                            <b>
+                                                                <center>
+                                                                    <label class="textogrupo">
+                                                                        ANEXO I - ATA ASSEMBLEIA
+                                                                    </label>
+                                                                </center>
+                                                                <label class="tituloClausula">
+                                                                                                                                    </label>
+                                                            </b>
+                                                        </label>
+                                                        <b>
+                                                            <label>
+
+                                                            </label>
+                                                        </b>
+                                                        <br />
+                                                        <label class="descricaoClausula" >
+                                                            <p><a href="https://mediador.trabalho.gov.br/sistemas/mediador/imagemAnexo/MR045088_20262026_07_21T09_38_54.pdf" target="_blank">Anexo (PDF)</a></p>
+                                                        </label>
+                                                        <br />
+                                        <!--****************************************** FIM - Anexos ******************************************-->
+                                            <label class="texto">
+                                                &#160;&#160;&#160;&#160;A autenticidade deste documento poderá ser confirmada na
+                                                página do Ministerio do Trabalho e Emprego na Internet, no endereço http://www.mte.gov.br.
+                                            </label>
+                                            <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+<script>
+    setTimeout(function () {
+        window.history.replaceState({}, '', window.location.pathname);
+    }, 0);
+</script>
+</html>

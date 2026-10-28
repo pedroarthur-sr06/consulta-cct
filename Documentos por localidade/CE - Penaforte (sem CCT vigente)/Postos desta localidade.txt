@@ -1,0 +1,21 @@
+﻿CCT DOS POSTOS — CE - Penaforte (sem CCT vigente)
+Atualizado em 23/10/2026
+
+Situação: CCT vencida, seguida pela Rede como referência
+CCT: CCT 2017 (vencida, seguida pela Rede)
+Vigência: 01/01/2017 a 31/12/2017 (vencida) (data-base 1º de janeiro)
+Sindicato dos empregados: SINPOSPETRO-CE — CNPJ 08.466.353/0001-93
+Sindicato patronal: SINDIPOSTOS-CE — CNPJ 07.339.203/0001-56
+Piso do frentista: R$ 986,10 + 30% de periculosidade, desde 01/01/2017. É o valor de 2017 e fica abaixo do salário mínimo nacional (R$ 1.621,00 em 2026), que é o piso legal. (fonte: CCT CE000703/2017, cláusula 3ª)
+Texto oficial / fonte: https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR026431/2017
+
+POSTOS (2)
+- JP — Penaforte/CE
+    Endereço não informado
+    Mapa: https://www.google.com/maps?q=-7.8294887,-39.086792
+- LIMARQUES — Penaforte/CE
+    Endereço não informado
+    Mapa: https://www.google.com/maps?q=-7.8238556,-39.0881656
+
+ARQUIVOS NESTA PASTA
+- VENCIDA - CCT 2017 - CE000703-2017.doc (texto registrado no Mediador; abre no Word)

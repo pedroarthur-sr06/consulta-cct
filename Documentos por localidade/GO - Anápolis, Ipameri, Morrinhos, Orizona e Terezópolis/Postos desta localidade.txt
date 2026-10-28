@@ -1,0 +1,36 @@
+﻿CCT DOS POSTOS — GO - Anápolis, Ipameri, Morrinhos, Orizona e Terezópolis
+Atualizado em 23/10/2026
+
+Situação: Vigente — confirmada no Mediador
+CCT: SRT00303/2025
+Vigência: 01/05/2025 a 30/04/2027 (data-base 1º de maio)
+Sindicato dos empregados: SINPOSPETRO-GO — CNPJ 11.031.114/0001-15
+Sindicato patronal: SINDIPOSTO-GO — CNPJ 00.799.213/0001-25
+Termos aditivos: SRT00369/2025 — pisos 2025; SRT00264/2026 — pisos 2026, prêmio assiduidade e cesta básica
+Piso do frentista: R$ 1.731,21 + 30% de periculosidade, desde 01/05/2026 (fonte: Aditivo SRT00264/2026)
+Texto oficial / fonte: https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR024107/2025
+
+POSTOS (6)
+- SONHO VERDE — Ipameri/GO
+    RODOVIA BR 050 KM 128 FAZENDA SONHO VERDE ZONA RURAL - 75784000 - IPAMERI - GO
+    Mapa: https://www.google.com/maps?q=-16.995025,-47.75370333
+- VEREDA VERDE — Ipameri/GO
+    RODOVIA BR 050, KM 148 S/N Zona Rural - Ipameri- GO
+    Mapa: https://www.google.com/maps?q=-17.160857,-47.723115
+- ANAPOLIS CONQUISTA — Anápolis/GO
+    RODOVIA BR 060, KM 123 Nº 1100 Jardim Alvorada - Anápolis -GO
+    Mapa: https://www.google.com/maps?q=-16.35283167,-48.91502
+- SIDNEY — Terezópolis de Goiás/GO
+    ROD BR 153 KM 32 ANÁPOLIS S/N ZONA RURAL - 75175000 - TEREZÓPOLIS DE GOIÁS -GO
+    Mapa: https://www.google.com/maps?q=-16.452064,-49.051898
+- MORRINHOS — Morrinhos/GO
+    RODOVIA BR 153, KM 598, S/N - ZONA RURAL - 75.650-000 - MORRINHOS – GO
+    Mapa: https://www.google.com/maps?q=-17.527496,-49.215994
+- ORIZONA — Orizona/GO
+    RODOVIA 330, S/N, KM 199, ZONA RURAL, 75280-000 - GO
+    Mapa: https://www.google.com/maps?q=-17.0322,-48.3074
+
+ARQUIVOS NESTA PASTA
+- CCT 2025-2027 - SRT00303-2025.doc (texto registrado no Mediador; abre no Word)
+- Aditivo 2025 - pisos - SRT00369-2025.doc (texto registrado no Mediador; abre no Word)
+- Aditivo 2026 - pisos e benefícios - SRT00264-2026.doc (texto registrado no Mediador; abre no Word)

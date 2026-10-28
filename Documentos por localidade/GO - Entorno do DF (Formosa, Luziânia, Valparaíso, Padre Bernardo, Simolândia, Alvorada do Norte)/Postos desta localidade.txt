@@ -1,0 +1,59 @@
+﻿CCT DOS POSTOS — GO - Entorno do DF (Formosa, Luziânia, Valparaíso, Padre Bernardo, Simolândia, Alvorada do Norte)
+Atualizado em 23/10/2026
+
+Situação: Vigente — confirmada no Mediador
+CCT: SRT00402/2025
+Vigência: 01/05/2025 a 30/04/2027 (data-base 1º de maio)
+Sindicato dos empregados: SINPOSPETRO-ENTORNO DF/GO — CNPJ 21.294.985/0001-85
+Sindicato patronal: SINDIPOSTO-GO — CNPJ 00.799.213/0001-25
+Termos aditivos: SRT00163/2026 — pisos 2026 e cartão alimentação
+Piso do frentista: R$ 1.731,21 + 30% de periculosidade, desde 01/05/2026 (fonte: Aditivo SRT00163/2026)
+Texto oficial / fonte: https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR064592/2025
+
+POSTOS (14)
+- POSTO VENDINHA — Padre Bernardo/GO
+    Q 07 CHACARA 01 LOTE 01 - SANTA BARBARA - PADRE BERNARDO - GO 73700-000
+    Mapa: https://www.google.com/maps?q=-15.611818,-48.202117
+- SIMOLÂNDIA — Simolândia/GO
+    ROD BR 020 KM 181, JARDIM BRASIL - 73.930-000 - SIMOLÂNDIA - GO
+    Mapa: https://www.google.com/maps?q=-14.46584333,-46.48280167
+- SERRA BONITA — Alvorada do Norte/GO
+    ROD BR 020 QUADRA 04 , NOVO IPIRANGA - 73.950-000 - ALVORADA DO NORTE - GO
+    Mapa: https://www.google.com/maps?q=-14.48660333,-46.49913028
+- ALIANÇA — Luziânia/GO
+    ROD BR 040, KM 32, LOTE 3A, 7 A 12 15 43, LUZILIA PARQUE - 72.834-237 - LUZIÂNIA - GO
+    Mapa: https://www.google.com/maps?q=-16.23571944,-47.91153278
+- ROTA 020 — Formosa/GO
+    RODOVIA BR 020, KM 30, DISTRITO DO BEZERRA - 73.814-500 - FORMOSA - GO
+    Mapa: https://www.google.com/maps?q=-15.494088,-47.107618
+- CORREA 020 — Formosa/GO
+    RODOVIA BR 020, KM 30,9, DISTRITO DO BEZERRA - 73.817-000 - FORMOSA - GO
+    Mapa: https://www.google.com/maps?q=-15.490776,-47.106266
+- SÃO BERNARDO — Valparaíso de Goiás/GO
+    BR 040 KM 8,75, LOTES DE C A V, S/N - CENTRO - 72876241 - VALPARAÍSO DE GOIÁS – GO
+    Mapa: https://www.google.com/maps?q=-16.05473111,-47.982985
+- (DIVISÃO) - OLIVEIRA — Formosa/GO
+    RODOVIA BR 020 KM 1,7 BLOCO B LOTE 08 – PARQUE LAGO - 73814500 - FORMOSA – GO
+    Mapa: https://www.google.com/maps?q=-15.802513,-47.329919
+- SOL — Formosa/GO
+    ROD.BR 020, KM 16 POÇOES CX POSTAL 04, S/N - ZONA RURAL -73801970- FORMOSA – GO
+    Mapa: https://www.google.com/maps?q=-15.562141,-47.215918
+- ESPLANADA — Valparaíso de Goiás/GO
+    AV. ESPLANADA - PARQUE ESPLANADA III - 72.876-350 - VALPARAÍSO – GO
+    Mapa: https://www.google.com/maps?q=-16.07614472,-47.98077972
+- SÃO PAULO — Formosa/GO
+    RODOVIA BR 020, KM 63, TREVO FORMOSA – VILLAGE - 73.814-500 - FORMOSA – GO
+    Mapa: https://www.google.com/maps?q=-15.56408639,-47.31648472
+- (NELORE) - SANTA MARIA — Luziânia/GO
+    ROD.BR 040 - PARQUE ESTRELA DALVA III - 72.831-010 - LUZIÂNIA – GO
+    Mapa: https://www.google.com/maps?q=-16.24480917,-47.90558861
+- POSTO 080 — Padre Bernardo/GO
+    Rodovia. BR 080, Nº S/N, KM 18/19, Taboquinha – Padre Bernardo - GO
+    Mapa: https://www.google.com/maps?q=-15.3886881,-48.2046122
+- POSTO CAMINHONEIRO — Formosa/GO
+    RODOVIA BR 020, KM 142 S/N - PARQUE LAGO - FORMOSA - GO
+    Mapa: https://www.google.com/maps?q=-15.0684516,-47.081017
+
+ARQUIVOS NESTA PASTA
+- CCT 2025-2027 - SRT00402-2025.doc (texto registrado no Mediador; abre no Word)
+- Aditivo 2026 - pisos e cartão alimentação - SRT00163-2026.doc (texto registrado no Mediador; abre no Word)

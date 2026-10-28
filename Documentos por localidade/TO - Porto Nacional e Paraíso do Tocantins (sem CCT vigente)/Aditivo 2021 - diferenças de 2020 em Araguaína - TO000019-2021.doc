@@ -1,0 +1,523 @@
+
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>
+        Mediador - Extrato Termo Aditivo de Conven&#231;&#227;o Coletiva
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G"></script>
+
+    <script src='/sistemas/mediador/WebResource.axd?d=eA_kTBHG4WPTInlUimYgJr1bPY2BvNpoeXCDS-PSAiuxnxEbO45x96DmUjkiWRRSNar1FSQEbiRx0fJbHSriZy14M__ZbZ5jEBPOynqRmVrrAf9NJmsbU3lNHi1EzhDqml0w1rfqf5zBnBiOmi1qRaqoKBvloZrGUsuU07tKcrwO2P3n2Gku02OeMdlxVbWc0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=DD_VnDXykqjYfkYqsQbBMLp5k98FiU6EjRzRFOfdyxwxu5JTVuPdw3Okx6WxoC1yW2PzREKuYmqMYvv7mxT1xblCkDWCvad0mpwQ3rULdW4Tv4WB_Wjf4jf4221RTDZFunOJCPwWKqvEsPmtFojvIPPGb9qYwYsQO9voci1n7yv8o4kTac0QDna691dMjLVgO_rc4u825I_ChtsDgOqyXQ2&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=WYI1PeFzqAg_qzvGd1m2-eZ2h0EQl1g3Vt8af1jWQmxTlG-MjRLzy9fhpZAUIviHinHi5S0Hrp-yVtOKttfb2SrOyt6G5QnU24o42L9C3Ri4cbDE9wug0aWWsdfxdiHaC8rhDBSIXxCROiR3fAKyj24nTpSx-xY0Mith2AU_JzV1z0HuGLCi2VHeDITKEuWQ0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=2Cur0eWUSOqix8wHPFeXoOIahLdyY8Ovs_x28OpCQTgPp0kdMuXbo43ezA5raeNnDWfsZGh3x2-X0bCIsqLSwEMkxjPTeOAuGu7G7CFzi0wA-Bq5sRTACwwSI1O-C_S-AYBjNtLsw7tU6bSKQq6dmPSS3VCi1rnsbBT4pPVx38w4eIyNCSYUoMDaanTVS1Ak0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=qgE_uLZebDV8uWOsMrXV7tKFjhM1xvMTQ3qdhzsnMNUQAEqvRpGSgnBcjKFr6G5HNQrd-Uw60mTyWxcNhv3C0hxzAURLwKBtrVXsPilh06jhwLNA6Cf-rc1bIJ9PGC9JzFMn1XW0K4fq63FTOu89nVX2-pN35hUN7BgPjVnH-aq9BpxmK0Zhhm_IElQVXrhD0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=zhXFH9YFnxZbfCvUpdCu3AuQxuu6QKaC3Y94wgCegjG7NfD3Z--DStNDs5Dxr2UGGsng9RcX6knN_FPWCr3uvFQBQfG3DKyAqY_ZV6bhOF-Gc2Gmlq6MYjFjQJuVO9PHPS0Cz68SqT621B5QgpIIMRs2zXrEOKrPwIpCV0EkRFo7VYii4r7zk7_Zy7Y6_Eo30&t=639193666532168144' type='text/javascript'></script>
+
+
+<script type="text/javascript">
+        var recaptchaSiteKey = '6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G';
+        var pageLoadToken = '';
+        var isPageValidated = false;
+
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA carregado, validando página...');
+            executePageLoadRecaptcha();
+        }
+
+        function executePageLoadRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                console.error('reCAPTCHA não carregado');
+                return;
+            }
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(recaptchaSiteKey, {
+                    action: 'page_load_resumo'
+                }).then(function(token) {
+                    console.log('Token de página gerado');
+                    pageLoadToken = token;
+
+                    // Enviar o token para o servidor
+                    validatePageLoadToken(token);
+                }).catch(function(error) {
+                    console.error('Erro no reCAPTCHA de página:', error);
+                    // Em desenvolvimento, permitir continuar
+                });
+            });
+        }
+
+        function validatePageLoadToken(token) {
+            var currentUrl = window.location.href;
+            var queryString = window.location.search;
+            var nrSolicitacao = 'MR007632/2021';
+
+            $.ajax({
+                url: '/sistemas/mediador/Resumo/ValidateResumoPageLoad',
+                type: 'POST',
+                data: {
+                    recaptchaToken: token,
+                    currentUrl: currentUrl,
+                    queryString: queryString,
+                    nrSolicitacao: nrSolicitacao
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Página validada com sucesso');
+                        isPageValidated = true;
+                        showPageContent();
+                    } else {
+                        console.warn('Validação de página falhou:', response.message);
+                        handleValidationFailed(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao validar página:', error);
+                    handleValidationFailed({ message: 'Erro de comunicação com o servidor' });
+                }
+            });
+        }
+
+        function showPageContent() {
+            // Remover overlay de loading se existir
+            $('#recaptcha-loading').remove();
+            console.log('Conteúdo da página liberado');
+        }
+
+        function handleValidationFailed(response) {
+            // Mostrar mensagem de erro
+            var errorHtml = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <div style="text-align: center; padding: 20px;">
+                        <h2 style="color: #d32f2f;">Validação de Segurança</h2>
+                        <p style="font-size: 16px; margin: 20px 0;">${response.message || 'Falha na validação de segurança.'}</p>
+                        <button onclick="window.location.reload()" style="padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Tentar Novamente
+                        </button>
+                        <br><br>
+                        <button onclick="window.location.href='/sistemas/mediador/'" style="padding: 8px 16px; background: #757575; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Voltar para Página Inicial
+                        </button>
+                    </div>
+                </div>
+            `;
+            $('body').prepend(errorHtml);
+        }
+
+        $(document).ready(function() {
+            console.log('Página carregada - ambiente de produção');
+
+            // Pular validação reCAPTCHA em produção
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.log('Produção - validando sem reCAPTCHA');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 1000);
+
+            // Timeout de segurança reduzido
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.warn('Timeout na validação - liberando conteúdo');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 5000); // Reduzido para 5 segundos
+        });
+
+        function Imprimir() {
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "none";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "none";
+            window.print();
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "";
+            return true;
+        }
+        $(function () {
+            var marcaDaguaHtml = $('.MarcaDagua').html();
+            var width = $('body').width();
+            var marcaW = $('.MarcaDagua').width();
+
+            var qtdNescessarios = Math.round((width / marcaW) + 0.4);
+            if (qtdNescessarios > 0)
+                for (var incrementador = 0; incrementador < qtdNescessarios; incrementador++) {
+                    $('.MarcaDagua').append("<br />");
+                    $('.MarcaDagua').append(marcaDaguaHtml);
+                }
+        });
+
+
+</script>
+    <style type="text/css">
+        .titulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .Subtitulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        .texto
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .tituloClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .descricaoClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .textogrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .textosubgrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .textonome
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .textofuncao
+        {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .pagebreak
+        {
+            page-break-after: always;
+        }
+        table.titulo
+        {
+            text-align: left;
+        }
+        @page Section2 {size:21cm 29.7cm ;mso-page-orientation:portrait;margin-top:2cm; margin-rigth:2cm; mso-paper-source:0;}
+        div.Section2 {page:Section2;}
+        pre
+        {
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            white-space: normal;
+        }
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="Section2">
+
+        <center>
+            <table border="0" style="width: 18cm;" id="tblConteudo">
+                <tr>
+                    <td>
+                        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+
+                                                            <tr>
+                                    <td align="center" class="titulo" style="text-transform: uppercase;">
+                                        <b>
+                                            Termo Aditivo a Conven&#231;&#227;o Coletiva De Trabalho 2020/2022
+                                        </b>
+                                        <br />
+                                        <br />
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    <div style="text-align: left;">
+                                        <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <b>NÚMERO DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        TO000019/2021
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        23/02/2021
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>NÚMERO DA SOLICITAÇÃO:</b>
+                                                </td>
+                                                <td style="width: 10px">
+                                                </td>
+                                                <td>
+                                                    MR007632/2021
+                                                </td>
+                                            </tr>
+                                                                                            <tr>
+                                                    <td>
+                                                        <b>NÚMERO DO PROCESSO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        14021.117763/2021-98
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DO PROTOCOLO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+17/02/2021                                                    </td>
+                                                </tr>
+                                        </table>
+                                        <br />
+
+                                                    <br />
+                                                    <br />
+                                                    <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td>
+                                                                <b>
+                                                                    N&#218;MERO DO PROCESSO  DA CONVEN&#199;&#195;O COLETIVA PRINCIPAL:
+                                                                </b>
+                                                            </td>
+                                                            <td style="width: 10px">
+                                                            </td>
+                                                            <td>
+                                                                14021.109059/2021-61
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>
+                                                                    DATA DE REGISTRO  DA CONVEN&#199;&#195;O COLETIVA PRINCIPAL:
+                                                                </b>
+                                                            </td>
+                                                            <td style="width: 10px">
+                                                            </td>
+                                                            <td>
+11/02/2021                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                        <p>
+                                                            <label class="texto">
+                                                                <b>
+                                                                    Confira a autenticidade no endereço http://www3.mte.gov.br/sistemas/mediador/.
+                                                                </b>
+                                                            </label>
+                                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="texto">
+                                    <p align="justify">
+SINTRAPOSTO-ARAGUAINA- SINDICATO DOS TRABALHADORES EM POSTO DE REVENDA DE COMBUSTIVEL NO ESTADO DO TOCANTINS (ARAGUAINA E REGIAO)., CNPJ n. 12.324.179/0001-11, neste ato representado(a) por seu 
+
+Presidente, Sr(a). NEURIVAN COELHO DE OLIVEIRA;
+    <br />
+&nbsp;
+    <br />
+SINDICATO DOS TRABALHADORES EM POSTOS DE REVENDA DE COMBUSTIVEIS NO ESTADO DO TOCANTINS, CNPJ n. 07.823.409/0001-57, neste ato representado(a) por seu 
+
+Presidente, Sr(a). ANDREYS CESAR DA SILVA;
+    <br />
+&nbsp;
+    <br />
+                                        <label>
+                                            E
+                                        </label>
+                                        <br />
+                                        <br />
+SINDICATO DOS REVENDEDORES DE COMBUSTIVEIS DO ESTADO DO TOCANTINS, CNPJ n. 37.344.843/0001-15, neste ato representado(a) por seu 
+
+Presidente, Sr(a). WILBER SILVANO DE SOUSA FILHO;
+    <br />
+&nbsp;
+    <br />
+                                                                                    celebram
+                                                                                    o
+                                         presente TERMO ADITIVO DE CONVEN&#199;&#195;O COLETIVA DE TRABALHO,
+ estipulando as condi&#231;&#245;es de trabalho previstas nas cl&#225;usulas seguintes:                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA PRIMEIRA - VIG&#202;NCIA E DATA-BASE
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    As partes fixam a vigência do presente Termo Aditivo de Convenção Coletiva de Trabalho no período de 01º de março de 2020 a 28 de fevereiro de 2022 e a data-base da categoria em 01º de março.
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA SEGUNDA - ABRANG&#202;NCIA
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    O presente Termo Aditivo de Convenção Coletiva de Trabalho abrangerá a(s) categoria(s) <b>O presente instrumento coletivo aplica-se às relações de trabalho existentes ou que venham a existir entre os trabalhadores em Postos de Revenda de Combustíveis e os respectivos empregadores, exceto o menor aprendiz, na base territorial do sindicato labora que abrange os seguintes municípios: Abreulândia, Aliança do Tocantins, Almas, Alvorada, Aparecida do Rio Negro, Araguacema, Araguaçu, Arapoema, Arraias, Aurora do Tocantins, Bandeirantes do Tocantins, Barrolândia, Bernardo Sayão, Bom Jesus do Tocantins, Brasilândia do Tocantins, Brejinho de Nazaré, Cariri do Tocantins, Caseara, Centenário, Chapada da Natividade, Chapada de Areia, Colinas do Tocantins, Colmeia, Combinado, Conceição do Tocantins, Couto de Magalhães, Cristalândia, Crixás do Tocantins, Dianópolis, Divinópolis do Tocantins, Dois Irmãos do Tocantins, Pequizeiro, Pindorama do Tocantins, Pium, Ponte Alta do Bom Jesus, Ponte Alta do Tocantins, Porto Alegre do Tocantins, Porto Nacional, Presidente Kennedy, Pugmil, Recursolândia, Rio da Conceição Rio Dos Bois, Rio Sono, Sandolândia, Santa Maria do Tocantins, Santa Rita do Tocantins, Santa Rosa do Tocantins,, Santa Tereza do Tocantins, São Félix do Tocantins, São Salvador do Tocantins, São Valério da Natividade, Silvanópolis, Sucupira, Taguatinga, Taipas do Tocantins, Talismã, Tocantinia, Tupirama, Tupiratins, Dueré, Fátima, Figueirópolis, Formoso do Araguaia, Fortaleza do Tabocão, Goianorte, Guaraí, Gurupi, Ipueiras, Itacajá, Itapiratins, Itaporã do Tocantins, Jaú do Tocantins, Juarina, Lagoa da Confusão, Lagoa do Tocantins, Lajeado, Lavandeira, Lizarda, Marianópolis do Tocantins, Mateiros, Miracema do Tocantins, Miranorte, Monte do Carmo, Monte Santo do Tocantins, Mosquito, Natividade, Nova Olinda, Nova Rosalândia, Novo Acordo, Novo Alegre, Novo Jardim, Oliveira de Fátima, Palmas, Palmeirante, Palmeirópolis, Paraíso do Tocantins, Paraná, Pau D´Arco, Pedro Afonso e Peixe e ainda Arguianópolis, Ananás, Angico, Aragominas, Araguaína, Araguanã, Araguatins, Augustinópolis, Axixá do Tocantins, Babaçulândia, Barra do Ouro, Buriti do Tocantins, Cachoeirinha, Campos Lindos, Carmolândia, Carrasco Bonito, Darcinópolis, Esperantina, Filadélfia, Goiatins, Itaguatins, Luzinópolis, Maurilândia do Tocantins, Muricilândia, Nazaré, Palmeiras do Tocantins, Piraquê, Praia Norte, Riachinho, Sampaio, Santa Fé do Araguaia, Santa Tereza do Tocantins, São Bento do Tocantins, São Miguel do Tocantins, São Sebastião do Tocantins, Sítio Novo do Tocantins, Tocantinópolis, Wanderlândia e Xambioá</b>, com abrangência territorial em <b>TO</b>.
+                                                </label>
+                                                <br />
+                                    </p>
+
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Disposições Gerais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras Disposições
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TERCEIRA - DISPOSI&#199;&#213;ES ESPECIAIS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Na base territorial do Sindicato dos Trabalhadores em Postos de Revenda de Combust&iacute;veis no Estado do Tocantins (Araguaina e Regi&atilde;o) as empresas que de mar&ccedil;o de 2020 a dezembro de 2020 pagaram o sal&aacute;rio base em valor inferior a R$ 1.076,46, pagar&atilde;o as diferen&ccedil;as de sal&aacute;rio de mar&ccedil;o de 2020 a dezembro de 2020, apuradas entre o valor pago e o valor do piso salarial de R$ 1.076,46 e suas repercuss&otilde;es nas demais verbas trabalhistas em 03 parcelas iguais: 1&ordf; parcela &ndash; com o sal&aacute;rio do m&ecirc;s de fevereiro, 2&ordm; parcela &ndash; com o sal&aacute;rio do m&ecirc;s de mar&ccedil;o; 3&ordf; parcela com o sal&aacute;rio do m&ecirc;s de abril.</span></p>
+<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Palmas, 26 de janeiro de 2021.</span></p>
+                                                </label>
+                                                <br />
+                                    }
+                                    <br />
+                                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                    <br />
+    <br />
+    <label class="textonome">
+        NEURIVAN COELHO DE OLIVEIRA
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SINTRAPOSTO-ARAGUAINA- SINDICATO DOS TRABALHADORES EM POSTO DE REVENDA DE COMBUSTIVEL NO ESTADO DO TOCANTINS (ARAGUAINA E REGIAO).
+        <br />
+        <br />
+    </label>
+
+    <br />
+    <br />
+    <label class="textonome">
+        ANDREYS CESAR DA SILVA
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SINDICATO DOS TRABALHADORES EM POSTOS DE REVENDA DE COMBUSTIVEIS NO ESTADO DO TOCANTINS
+        <br />
+        <br />
+    </label>
+    <br />
+    <br />
+    <label class="textonome">
+        WILBER SILVANO DE SOUSA FILHO
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SINDICATO DOS REVENDEDORES DE COMBUSTIVEIS DO ESTADO DO TOCANTINS
+        <br />
+        <br />
+    </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        <br />
+                                        <center>
+                                            <label class="textogrupo">
+                                                <b>ANEXOS </b>
+                                            </label>
+                                        </center>
+                                                        <label>
+                                                            <b>
+                                                                <center>
+                                                                    <label class="textogrupo">
+                                                                        ANEXO I - ATA DE APROVA&#199;&#195;O 
+                                                                    </label>
+                                                                </center>
+                                                                <label class="tituloClausula">
+                                                                                                                                    </label>
+                                                            </b>
+                                                        </label>
+                                                        <b>
+                                                            <label>
+
+                                                            </label>
+                                                        </b>
+                                                        <br />
+                                                        <label class="descricaoClausula" >
+                                                            <p><a href="http://www3.mte.gov.br/sistemas/mediador/imagemAnexo/MR007632_20212021_02_12T11_28_51.pdf" target="_blank">Anexo (PDF)</a></p>
+                                                        </label>
+                                                        <br />
+                                        <!--****************************************** FIM - Anexos ******************************************-->
+                                            <label class="texto">
+                                                &#160;&#160;&#160;&#160;A autenticidade deste documento poderá ser confirmada na
+                                                página do Ministerio do Trabalho e Emprego na Internet, no endereço http://www.mte.gov.br.
+                                            </label>
+                                            <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+<script>
+    setTimeout(function () {
+        window.history.replaceState({}, '', window.location.pathname);
+    }, 0);
+</script>
+</html>

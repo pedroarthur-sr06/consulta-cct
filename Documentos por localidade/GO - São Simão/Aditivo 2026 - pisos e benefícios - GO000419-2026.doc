@@ -1,0 +1,755 @@
+
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>
+        Mediador - Extrato Termo Aditivo de Conven&#231;&#227;o Coletiva
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G"></script>
+
+    <script src='/sistemas/mediador/WebResource.axd?d=wXNrqtNzkM2nUFdv57rgwtp0M1Q2PwDesridSVAFm60LT37o8bgyGSLTag-tYGSAXCYfHCMRWjUOAolUo7QaKIFqf7z_yn5g8Ppq8KXOvnu5rRziSKW816bllnT5YQB4NbWzubLWeULReQJgDSGOrqUkHbtLTE7UOcJq-ybbUnhw9E1L4FQ6EAAySCHjHAfW0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=ak8sAF3ikKawZ3rJgbNPgoMK3DJI3rV66LtlNxcYLIFuNI_qgjyZawrKRwCL8J5d4h-PiBpTDGXBjEI8Iz1yQe7jub0AZvZ1Co-S0rwrN_bloZMGXB8KdRhAu4uviimavgKNbpsjZSMrzfWfW9fa6B9zbPmqtBw8sMJqwczUn_axRyliC5CkDUi7tTJpi91enPOhzZ-RyfM0Q5_yNa5GaA2&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=9Jqok0Zh9ogJXGczGGaOAA3qyxd0a9QfHt24Wkzz5Fi5nzMq9pLcdC_2UV-ONL0hzTKrW9b46mY6vxGkPnrjLBmflmUokeCyTRqwUCZo67tHa7lbeP7dBjshtv21q8PS2BPnZvOB0uhcbZ-Lr5O9FA4ZpMm2J3qpQynfhvkDMPAYGIgREKdaix8tSsMMNU5g0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=C-pA6H5dLZ_zF2xux04NiBocV1v-KcyTKlgsoxX-mvWOVMikBONOnQRSzcXPJSAm9d6mqJ1ZxQftKQzFvW9nllzy4jT4oIAivj-oRj6tsKREh0hBjHCH4zD3jT9htm62ddbVggDwmt8N5AH9kBmIRb-IssO0cMrq1JeqErXBWUv0KXGEVcDh3kDrBlYC91Ar0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=oSZCJSuTY5BORswpB86rpZW05QPwwOvnsxN0pcXg-b1Ajz72bKXH_oy5JbgKJYGkqCV7B6Yzdqs6BqRmrDxP-0yJq2TzDNhl42rVtxoK8_bh0T8FseFdHnWS4SJEkpVouFuNMXDKb5Ps9aZSRO8wevMM1eWdRDQaXsBQXlTaCtxhPOW_PCIB4BaUWZwlk3xf0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=IPqlOtaIZ8Wog5J6tsh9FVvwoAgLhaFE4iA8Nmt3R4ylxDeBr7YXsEo9GzS73A3Qe4brg11Rszb8E7ZYaJLeEXgK11Td4hL7hKRC2nvPgza1oo-XnAez8R55RuCsog3kvYegu0oPMKAK8tgn-HSekXfeY3m4VUXXIEC7Vd-UtiL8PHbxgXgF2ZbVs47N83rv0&t=639193666532168144' type='text/javascript'></script>
+
+
+<script type="text/javascript">
+        var recaptchaSiteKey = '6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G';
+        var pageLoadToken = '';
+        var isPageValidated = false;
+
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA carregado, validando página...');
+            executePageLoadRecaptcha();
+        }
+
+        function executePageLoadRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                console.error('reCAPTCHA não carregado');
+                return;
+            }
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(recaptchaSiteKey, {
+                    action: 'page_load_resumo'
+                }).then(function(token) {
+                    console.log('Token de página gerado');
+                    pageLoadToken = token;
+
+                    // Enviar o token para o servidor
+                    validatePageLoadToken(token);
+                }).catch(function(error) {
+                    console.error('Erro no reCAPTCHA de página:', error);
+                    // Em desenvolvimento, permitir continuar
+                });
+            });
+        }
+
+        function validatePageLoadToken(token) {
+            var currentUrl = window.location.href;
+            var queryString = window.location.search;
+            var nrSolicitacao = 'MR025622/2026';
+
+            $.ajax({
+                url: '/sistemas/mediador/Resumo/ValidateResumoPageLoad',
+                type: 'POST',
+                data: {
+                    recaptchaToken: token,
+                    currentUrl: currentUrl,
+                    queryString: queryString,
+                    nrSolicitacao: nrSolicitacao
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Página validada com sucesso');
+                        isPageValidated = true;
+                        showPageContent();
+                    } else {
+                        console.warn('Validação de página falhou:', response.message);
+                        handleValidationFailed(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao validar página:', error);
+                    handleValidationFailed({ message: 'Erro de comunicação com o servidor' });
+                }
+            });
+        }
+
+        function showPageContent() {
+            // Remover overlay de loading se existir
+            $('#recaptcha-loading').remove();
+            console.log('Conteúdo da página liberado');
+        }
+
+        function handleValidationFailed(response) {
+            // Mostrar mensagem de erro
+            var errorHtml = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <div style="text-align: center; padding: 20px;">
+                        <h2 style="color: #d32f2f;">Validação de Segurança</h2>
+                        <p style="font-size: 16px; margin: 20px 0;">${response.message || 'Falha na validação de segurança.'}</p>
+                        <button onclick="window.location.reload()" style="padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Tentar Novamente
+                        </button>
+                        <br><br>
+                        <button onclick="window.location.href='/sistemas/mediador/'" style="padding: 8px 16px; background: #757575; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Voltar para Página Inicial
+                        </button>
+                    </div>
+                </div>
+            `;
+            $('body').prepend(errorHtml);
+        }
+
+        $(document).ready(function() {
+            console.log('Página carregada - ambiente de produção');
+
+            // Pular validação reCAPTCHA em produção
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.log('Produção - validando sem reCAPTCHA');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 1000);
+
+            // Timeout de segurança reduzido
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.warn('Timeout na validação - liberando conteúdo');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 5000); // Reduzido para 5 segundos
+        });
+
+        function Imprimir() {
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "none";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "none";
+            window.print();
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "";
+            return true;
+        }
+        $(function () {
+            var marcaDaguaHtml = $('.MarcaDagua').html();
+            var width = $('body').width();
+            var marcaW = $('.MarcaDagua').width();
+
+            var qtdNescessarios = Math.round((width / marcaW) + 0.4);
+            if (qtdNescessarios > 0)
+                for (var incrementador = 0; incrementador < qtdNescessarios; incrementador++) {
+                    $('.MarcaDagua').append("<br />");
+                    $('.MarcaDagua').append(marcaDaguaHtml);
+                }
+        });
+
+
+</script>
+    <style type="text/css">
+        .titulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .Subtitulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        .texto
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .tituloClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .descricaoClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .textogrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .textosubgrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .textonome
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .textofuncao
+        {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .pagebreak
+        {
+            page-break-after: always;
+        }
+        table.titulo
+        {
+            text-align: left;
+        }
+        @page Section2 {size:21cm 29.7cm ;mso-page-orientation:portrait;margin-top:2cm; margin-rigth:2cm; mso-paper-source:0;}
+        div.Section2 {page:Section2;}
+        pre
+        {
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            white-space: normal;
+        }
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="Section2">
+
+        <center>
+            <table border="0" style="width: 18cm;" id="tblConteudo">
+                <tr>
+                    <td>
+                        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+
+                                                            <tr>
+                                    <td align="center" class="titulo" style="text-transform: uppercase;">
+                                        <b>
+                                            Termo Aditivo a Conven&#231;&#227;o Coletiva De Trabalho 2026/2027
+                                        </b>
+                                        <br />
+                                        <br />
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    <div style="text-align: left;">
+                                        <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <b>NÚMERO DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        GO000419/2026
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        18/05/2026
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>NÚMERO DA SOLICITAÇÃO:</b>
+                                                </td>
+                                                <td style="width: 10px">
+                                                </td>
+                                                <td>
+                                                    MR025622/2026
+                                                </td>
+                                            </tr>
+                                                                                            <tr>
+                                                    <td>
+                                                        <b>NÚMERO DO PROCESSO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        10162.202627/2026-41
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DO PROTOCOLO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+12/05/2026                                                    </td>
+                                                </tr>
+                                        </table>
+                                        <br />
+
+                                                    <br />
+                                                    <br />
+                                                    <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td>
+                                                                <b>
+                                                                    N&#218;MERO DO PROCESSO  DA CONVEN&#199;&#195;O COLETIVA PRINCIPAL:
+                                                                </b>
+                                                            </td>
+                                                            <td style="width: 10px">
+                                                            </td>
+                                                            <td>
+                                                                10162.202495/2025-77
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>
+                                                                    DATA DE REGISTRO  DA CONVEN&#199;&#195;O COLETIVA PRINCIPAL:
+                                                                </b>
+                                                            </td>
+                                                            <td style="width: 10px">
+                                                            </td>
+                                                            <td>
+19/05/2025                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                        <p>
+                                                            <label class="texto">
+                                                                <b>
+                                                                    Confira a autenticidade no endereço http://mediador.trabalho.gov.br/sistemas/mediador/.
+                                                                </b>
+                                                            </label>
+                                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="texto">
+                                    <p align="justify">
+SIND DO COM VAREJISTA DE DERIV DE PETROLEO NO EST GOIAS, CNPJ n. 00.799.213/0001-25, neste ato representado(a) por seu 
+
+Presidente, Sr(a). MARCIO MARTINS DE CASTRO ANDRADE;
+    <br />
+&nbsp;
+    <br />
+                                        <label>
+                                            E
+                                        </label>
+                                        <br />
+                                        <br />
+SINDICATO DOS EMP. EM POSTOS DE SERV. DE COMB. LUBRIF. E DERIVADOS DE PETROLEO, LOJAS DE CONV. TROCA DE OLEO E LAVAJ. DE RIO VERDE E REG NO E.GO, CNPJ n. 22.424.502/0001-82, neste ato representado(a) por seu 
+
+Presidente, Sr(a). NILTON VIEIRA LEITE;
+    <br />
+&nbsp;
+    <br />
+                                                                                    celebram
+                                                                                    o
+                                         presente TERMO ADITIVO DE CONVEN&#199;&#195;O COLETIVA DE TRABALHO,
+ estipulando as condi&#231;&#245;es de trabalho previstas nas cl&#225;usulas seguintes:                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA PRIMEIRA - VIG&#202;NCIA E DATA-BASE
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    As partes fixam a vigência do presente Termo Aditivo de Convenção Coletiva de Trabalho no período de 01º de maio de 2026 a 30 de abril de 2027 e a data-base da categoria em 01º de maio.
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA SEGUNDA - ABRANG&#202;NCIA
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    O presente Termo Aditivo de Convenção Coletiva de Trabalho abrangerá a(s) categoria(s) <b>A presente Convenção Coletiva de Trabalho abrangerá a(s) categoria(s) Empregados em postos de
+serviços de combustíveis e derivados de petróleo, lava jatos, lojas de conveniências de postos de
+combustíveis, estacionamentos, borracharias e lubrificantes</b>, com abrangência territorial em <b>Amorinópolis/GO, Aparecida do Rio Doce/GO, Aporé/GO, Aragarças/GO, Arenópolis/GO, Bom Jardim de Goiás/GO, Cachoeira Alta/GO, Caçu/GO, Caiapônia/GO, Castelândia/GO, Chapadão do Céu/GO, Diorama/GO, Doverlândia/GO, Gouvelândia/GO, Iporá/GO, Itajá/GO, Itarumã/GO, Jataí/GO, Lagoa Santa/GO, Maurilândia/GO, Mineiros/GO, Montes Claros de Goiás/GO, Montividiu/GO, Palestina de Goiás/GO, Paranaiguara/GO, Paraúna/GO, Piranhas/GO, Portelândia/GO, Quirinópolis/GO, Rio Verde/GO, Santa Fé de Goiás/GO, Santa Helena de Goiás/GO, Santa Rita do Araguaia/GO, Santo Antônio da Barra/GO, São Simão/GO e Serranópolis/GO</b>.
+                                                </label>
+                                                <br />
+                                    </p>
+
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Salários, Reajustes e Pagamento
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Piso Salarial
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TERCEIRA - PISO SALARIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Fica assegurado aos empregados abrangidos pela presente Conven&ccedil;&atilde;o Coletiva de Trabalho e para os que ingressarem nas categorias abrangidas, a partir de 1&ordm; de maio de 2026, os seguintes pisos salariais:</p>
+<p>&nbsp;</p>
+<p>a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gerentes de Posto de Combust&iacute;vel, piso salarial de <strong>R$ 2.590,65 (dois mil, quinhentos e noventa reais e sessenta e cinco centavos</strong>), acrescidos do adicional de periculosidade de 30% (trinta por cento), totalizando <strong>R$ 3.367,84 (tr&ecirc;s mil, trezentos e sessenta e sete reais e oitenta e quatro centavos);</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gerentes de Loja de conveni&ecirc;ncia, piso salarial de <strong>R$ 1.839,18 (um mil, oitocentos e trinta e nove reais e dezoito centavos)</strong> acrescidos do adicional de periculosidade de 30% (trinta por cento), totalizando <strong>R$ 2.390,93 (dois mil, trezentos e noventa reais e noventa e tr&ecirc;s centavos);</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Encarregados de pista ou equivalente, piso salarial de <strong>R$ 2.072,63 (dois mil e setenta e dois reais e sessenta e tr&ecirc;s centavos) </strong>acrescidos de adicional de periculosidade de 30% (trinta por cento), totalizando <strong>R$ 2.694,42 (dois mil e seiscentos e noventa e quatro reais e quarenta e dois centavos);</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Frentistas (Bombeiros e Assemelhados), Trocadores de &oacute;leo, Pessoal de Escrit&oacute;rio, Caixas e Vigias Diurno, Piso Salarial de <strong>R$ 1.731,21</strong><strong>(um mil, setecentos e trinta e um reais e vinte e um centavos)</strong> acrescidos de 30% (trinta por cento) do adicional de periculosidade, independente da dist&acirc;ncia entre as bombas de combust&iacute;veis e o recinto de trabalho, totalizando <strong>R$ 2.250,57 (dois mil e duzentos e cinquenta reais e cinquenta e sete centavos);</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O sal&aacute;rio de ingresso dos trabalhadores descritos na al&iacute;nea &ldquo;d&rdquo; ser&aacute; equivalente ao sal&aacute;rio m&iacute;nimo que vier a ser fixado, acrescido de 30% (trinta por cento) &agrave; t&iacute;tulo de adicional de periculosidade, por um per&iacute;odo de 90 (noventa) dias, exceto para aqueles que tenham experi&ecirc;ncia comprovada na fun&ccedil;&atilde;o superior &agrave; 06 (seis) meses ininterruptos.</p>
+<p>&nbsp;</p>
+<p>f)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Empregados da &aacute;rea de limpeza de ve&iacute;culos, piso salarial de <strong>R$ 1.731,21</strong><strong>(um mil, setecentos e trinta e um reais e vinte e um centavos)</strong> acrescidos de 30% (trinta por cento) do adicional de periculosidade, independente da dist&acirc;ncia entre as bombas de combust&iacute;veis e o recinto de trabalho, totalizando <strong>R$ 2.250,57 (dois mil e duzentos e cinquenta reais e cinquenta e sete centavos);</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>g)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vigias Noturnos, piso salarial de <strong>R$ 1.731,21</strong><strong>(um mil, setecentos e trinta e um reais e vinte e um centavos)</strong> acrescidos de 30% (trinta por cento) do adicional de periculosidade e do adicional de noturno de 20% (vinte por cento), independente da dist&acirc;ncia entre as bombas de combust&iacute;veis e o recinto de trabalho, totalizando <strong>R$ 2.700,68 (dois mil e setecentos reais e sessenta e oito centavos), </strong>para uma jornada de trabalho de 220 horas/m&ecirc;s;</p>
+<p>&nbsp;</p>
+<p>h)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Empregados da &aacute;rea de alimenta&ccedil;&atilde;o (exceto Auxiliar de Cozinha), piso salarial de <strong>R$ 1.731,21</strong><strong>(um mil, setecentos e trinta e um reais e vinte e um centavos) </strong>acrescidos do adicional de periculosidade de 30% (trinta por cento), totalizando <strong>R$ 2.250,57 (dois mil e duzentos e cinquenta reais e cinquenta e sete centavos); </strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Empregados da &aacute;rea de servi&ccedil;os gerais (limpeza, conserva&ccedil;&atilde;o e jardinagem &ndash; um por turno) e Auxiliares de Cozinha, piso salarial de <strong>R$ 1.731,21</strong><strong>(um mil, setecentos e trinta e um reais e vinte e um centavos) </strong>acrescidos de 30% (trinta por cento) do adicional de periculosidade, independente da dist&acirc;ncia entre as bombas de combust&iacute;veis e o recinto de trabalho, totalizando <strong>R$ 2.250,57 (dois mil e duzentos e cinquenta reais e cinquenta e sete centavos);</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>Par&aacute;grafo Primeiro</strong> &ndash; As empresas que concederam reajustes nos &uacute;ltimos 12 meses anteriores ao in&iacute;cio da vig&ecirc;ncia desta Conven&ccedil;&atilde;o Coletiva de Trabalho poder&atilde;o compensar os valores, observando sempre os pisos salariais definidos nesta cl&aacute;usula.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo Segundo</strong> - As EMPRESAS se comprometem a reajustar, automaticamente, o valor do piso, caso o sal&aacute;rio m&iacute;nimo que vier a ser fixado pelo Governo Federal superar o valor estipulado nos itens acima.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Reajustes/Correções Salariais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUARTA - DA CORRE&#199;&#195;O SALARIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>A partir de 1&ordm; de maio de 2026, os sal&aacute;rios previstos na conven&ccedil;&atilde;o coletiva 2025/2027 ser&atilde;o reajustados no percentual fixo de 7% (sete por cento). Este reajuste engloba a varia&ccedil;&atilde;o do INPC acumulado nos &uacute;ltimos 12 (doze) meses, somada ao ganho real correspondente &agrave; diferen&ccedil;a entre o &iacute;ndice inflacion&aacute;rio e o percentual total de 7%.</p>
+<p><strong>Par&aacute;grafo Primeiro</strong>: As empresas que concederam reajustes nos &uacute;ltimos doze meses anteriores ao in&iacute;cio da vig&ecirc;ncia deste termo aditivo, poder&atilde;o compensar os valores, observando sempre os pisos salariais definidos nesta cl&aacute;usula.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo segundo - </strong>Todos os benef&iacute;cios concedidos nesta Conven&ccedil;&atilde;o Coletiva de Trabalho ser&atilde;o pagos a partir da folha de pagamento do m&ecirc;s de maio do corrente ano.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Gratificações, Adicionais, Auxílios e Outros
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Prêmios
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUINTA - DO PR&#202;MIO ASSIDUIDADE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p><span>Fica ajustado o pr&ecirc;mio de assiduidade, com natureza indenizat&oacute;ria, no valor <strong>R$ 39,60 (trinta e nove e sessenta centavos),</strong> a partir de 1&ordm; de maio de 2026, desde que o trabalhador n&atilde;o tenha faltas injustificadas no m&ecirc;s de apura&ccedil;&atilde;o, observando-se o disposto no art. 473 da CLT.</span></p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Auxílio Alimentação
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA SEXTA - DA CESTA B&#193;SICA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>A Cesta B&aacute;sica de Alimentos fornecida aos empregados passar&aacute; a ser no valor de <strong>R$ 290,00 (duzentos e noventa reais) mensais, a partir de 1&ordm; de maio de 2026, e mais o b&ocirc;nus de R$ 60,00 (sessenta reais), chegando a R$ 350,00 (trezentos e cinquenta reais), este &uacute;ltimo condicionado a inexist&ecirc;ncia de quaisquer faltas ao trabalho, inclusive mediante atestado m&eacute;dico, no m&ecirc;s de refer&ecirc;ncia.</strong></p>
+<p><strong>Par&aacute;grafo Primeiro &ndash; </strong>O fornecimento desta Cesta B&aacute;sica de Alimentos dever&aacute; ser feito pela empresa aos seus empregados em forma f&iacute;sica, observando-se rigorosamente o previsto na conven&ccedil;&atilde;o coletiva ou, atrav&eacute;s de &ldquo;Cart&atilde;o Alimenta&ccedil;&atilde;o&rdquo;, realizado preferencialmente atrav&eacute;s do VOLUS ou SODEXO, no valor de <strong>R$</strong> <strong>290,00 (duzentos e noventa reais)</strong> mensais, a partir de 1&ordm; de maio de 2026, ou R$ 350,00 (trezentos e cinquenta reais) quando for o caso conforme caput desta cl&aacute;usula, at&eacute; o dia 15 (quinze) do m&ecirc;s subsequente.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outros Auxílios
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA S&#201;TIMA - IEB
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>O empregador prestar&aacute; indistintamente a todos os trabalhadores subordinados a esta Conven&ccedil;&atilde;o Coletivo de Trabalho, os benef&iacute;cios sociais relacionados no Manual de Regras e Uso do Instituto Elias Bufai&ccedil;al - IEB, que ser&aacute; disponibilizado aos trabalhadores a partir de 01/01/2023, pelo valor mensal de <strong>R$ 26,21 (vinte e seis reais e vinte e um centavos),</strong> por trabalhador, cujo pagamento dever&aacute; ser realizado at&eacute; o dia 10 (dez) de cada m&ecirc;s que possua, exclusivamente, por meio de boleto disponibilizado pelo IEB, no site www.institutoeliasbufai&ccedil;al.com.br, ficando vedado qualquer desconto no sal&aacute;rio do trabalhador.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Relações Sindicais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Contribuições Sindicais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA OITAVA - CONTRIBUI&#199;&#195;O ASSISTENCIAL ASSOCIATIVA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Segundo aprovado na Assembleia Geral Extraordin&aacute;ria pelos trabalhadores benefici&aacute;rios deste instrumento, realizada no dia 19 de fevereiro de 2026 em Rio Verde GO., conforme edital publicado em 05 de fevereiro de 2026 no jornal &uml;O Popular&rdquo;, e que deliberou sobre os itens da Conven&ccedil;&atilde;o Coletiva de Trabalho, delegou poderes a diretoria do SINPOSPETRO RIO VERDE &ndash; GO., para assinatura da Conven&ccedil;&atilde;o Coletiva de Trabalho e fixou a Contribui&ccedil;&atilde;o Assistencial Associativa, de conformidade com o disposto no art.8&ordm; inciso III da Constitui&ccedil;&atilde;o Federal, combinado com os artigos 513,514 e 548 da CLT e demais disposi&ccedil;&otilde;es legais contidas no t&iacute;tulo V, da CLT, inclusive que determinam a obrigatoriedade dos sindicatos promoverem a assist&ecirc;ncia e defesa dos direitos e interesses individuais e coletivos de toda a categoria e n&atilde;o somente dos associados e de conformidade com o disposto no inciso IV do referido art.8&ordm; da Constitui&ccedil;&atilde;o Federal, que autoriza a fixa&ccedil;&atilde;o&nbsp; de contribui&ccedil;&atilde;o pela assembleia geral dos entes sindicais, independentemente da contribui&ccedil;&atilde;o prevista em lei, para suplementar o custeio do sistema sindical confederativo, as empresas descontar&atilde;o a contribui&ccedil;&atilde;o associativa no valor de R$ 28,00 (vinte e oito reais) remunera&ccedil;&atilde;o mensal de todos os seus empregados contemplados com a norma coletiva associados ao SINPOSPETRO RIO VERDE., promovendo o recolhimento ao sindicato classista at&eacute; o d&eacute;cimo (10&ordm;) dia do respectivo m&ecirc;s conforme seguintes dados banc&aacute;rios: SINDICATO DOS EMPREGADOS EM POSTOS DE SERVI&Ccedil;OS DE COMBUSTIVEIS LUBRIFICANTES E DERIVADOS DE PETROLEO, TROCA DE &Oacute;LEO, LOJAS DE CONVENIENCIA, ESTACIONAMENTOS E LAVA JATOS DE RIO VERDE E REGI&Atilde;O NO ESTADO DE GOI&Aacute;S, CNPJ N&ordm; 22.424.502/0001-82, BANCO SICOOB &ndash; 756, CONTA CORRENTE N&ordm; 6661-3.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo &Uacute;nico - </strong>&nbsp;As empresas que deixarem de efetuar os recolhimentos previstos nesta clausula ao sindicato dos empregados, responder&atilde;o pela integralidade do valor devido, se o descumprimento persistir por mais de 30(trinta) dias ap&oacute;s notifica&ccedil;&atilde;o pela entidade laboral, incidindo ainda multa de 10% (dez por cento) do valor do d&eacute;bito atualizado, juros de 1% ( um por cento)ao m&ecirc;s pela mora e corre&ccedil;&atilde;o monet&aacute;ria pelo INPC, ficando vedado, neste caso, o desconto desta contribui&ccedil;&atilde;o (em atraso) dos empregados, al&eacute;m de 15% ( quinze por cento) de honor&aacute;rios advocat&iacute;cios sobre o total devido em caso de ajuizamento de cobran&ccedil;a.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA NONA - TAXA ASSISTENCIAL NEGOCIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>A respeito das contribui&ccedil;&otilde;es sindicais e do custeio das atividades sindicais, a empresa empregadora dever&aacute; estar atenta a legisla&ccedil;&atilde;o e a <span style="text-decoration: underline;">decis&atilde;o da assembleia de trabalhadores </span>regularmente convocada, que &eacute; a fonte legitima para a estipula&ccedil;&atilde;o das contribui&ccedil;&otilde;es destinadas ao custeio das atividades sindicais. A assembleia pode dispor sobre o valor, a forma de desconto, a finalidade e a destina&ccedil;&atilde;o da contribui&ccedil;&atilde;o, em conformidade com o artigo 513, inciso&rdquo; e&rdquo; da CLT. Com base na Nota T&eacute;cnica n&ordm; 2 de 26 de outubro de 2018, exarada pela Coordenadoria Nacional de Promo&ccedil;&atilde;o de Liberdade Sindical (CONALIS) do Minist&eacute;rio do Trabalho e Emprego, e fundamentando-se na decis&atilde;o da Assembleia Geral Extraordin&aacute;ria, realizada no dia 19 de fevereiro de 2026em Rio Verde GO., conforme edital publicado em 05 de fevereiro de 2026 no Jornal &ldquo;O Popular&rdquo;, os empregadores se obrigam a descontar de todos os trabalhadores <span style="text-decoration: underline;">n&atilde;o associados a este sindicato</span>, mas que se beneficiam da Conven&ccedil;&atilde;o Coletiva de Trabalho vigente, o valor correspondente a 9%( nove por cento) da remunera&ccedil;&atilde;o mensal, divididas em 03 (tr&ecirc;s) parcelas, a incidir sobre o per&iacute;odo trabalhado dos meses de maio, agosto e novembro de 2026, sendo vedado qualquer desconto superior a R$ 85,00 (oitenta e cinco reais).</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo Primeiro - </strong>Para os empregados admitidos ap&oacute;s os meses de refer&ecirc;ncia para o desconto da taxa negocial, as empresas dever&atilde;o proceder ao desconto sobre a remunera&ccedil;&atilde;o do m&ecirc;s de admiss&atilde;o, salvo hip&oacute;tese em que o empregado comprove j&aacute; haver sofrido reten&ccedil;&atilde;o do valor em outro posto de trabalho da mesma categoria profissional.</p>
+<p>Par&aacute;grafo Segundo: para os empregados n&atilde;o associados que estivem afastados do trabalho nos meses em que o desconto deve ser feito, desconto ser&aacute; efetuado no m&ecirc;s seguinte ao retorno do empregado ao trabalho.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo Segundo -</strong> As empresas que deixarem de efetuar os recolhimentos previstos nesta clausula ao sindicato dos empregados, responder&atilde;o pela integralidade do valor devido, se o descumprimento persistir por mais de 30(trinta) dias ap&oacute;s notifica&ccedil;&atilde;o pela entidade laboral, incidindo ainda multa de 10% (dez por cento) do valor do d&eacute;bito atualizado, juros de 1% ( um por cento)ao m&ecirc;s pela mora e corre&ccedil;&atilde;o monet&aacute;ria pelo INPC, ficando vedado, neste caso, o desconto desta contribui&ccedil;&atilde;o (em atraso) dos empregados, al&eacute;m de 15% ( quinze por cento) de honor&aacute;rios advocat&iacute;cios sobre o total devido em caso de ajuizamento de cobran&ccedil;a.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo Terceiro - </strong>Conforme aprovado em assembleia da categoria, os trabalhadores N&Atilde;O FILIADOS ao sindicato profissional poder&atilde;o exercer o direito de se opor ao desconto, mediante manifesta&ccedil;&atilde;o individual escrita e assinada de pr&oacute;prio punho, enviada individualmente ao SINPOSPETRO RIO VERDE, por correios com (AR) no prazo de 15(quinze) dias corridos ap&oacute;s a realiza&ccedil;&atilde;o da assembleia.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo Quarto - </strong>A empresa deve depositar as import&acirc;ncias descontadas at&eacute; o 10&ordm; dia do m&ecirc;s seguinte ao desconto conforme dados banc&aacute;rios SINDICATO DOS EMPREGADOS EM POSTOS DE SERVI&Ccedil;OS DE COMBUSTIVEIS LUBRIFICANTES E DERIVADOS DE PETROLEO, TROCA DE &Oacute;LEO, LOJAS DE CONVENIENCIA, ESTACIONAMENTOS E LAVA JATOS DE RIO VERDE E REGI&Atilde;O NO ESTADO DE GOI&Aacute;S, CNPJ N&ordm; 22.424.502/0001-82, BANCO SICOOB &ndash; 756, CONTA CORRENTE N&ordm; 6661-3.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA - CONTRIBUI&#199;&#195;O ASSISTENCIAL PATRONAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>As empresas abrangidas por esta Conven&ccedil;&atilde;o Coletiva de Trabalho, <span style="text-decoration: underline;">associadas ou n&atilde;o</span> ao Sindicato da categoria econ&ocirc;mica aqui representada, recolher&atilde;o, por cada estabelecimento individualmente, inclusive filiais, a t&iacute;tulo de contribui&ccedil;&atilde;o assistencial, <span style="text-decoration: underline;">at&eacute; o dia 10 de junho de 2026</span>, a quantia de R$ 800,00 (oitocentos reais).</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo primeiro</strong>. O n&atilde;o pagamento at&eacute; a data de vencimento acima fixada acarretar&aacute; em multa de 10% (dez por cento) sobre o valor da contribui&ccedil;&atilde;o devidamente atualizada, al&eacute;m de juros de 1% (um por cento) ao m&ecirc;s.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo segundo</strong>. As empresas que n&atilde;o concordarem com o recolhimento previsto nesta cl&aacute;usula dever&atilde;o se manifestar em carta entregue ao Sindicato Patronal at&eacute; 15 (quinze) dias ap&oacute;s a data de assinatura da presente Conven&ccedil;&atilde;o.</p>
+<p>&nbsp;</p>
+<p><strong>Par&aacute;grafo terceiro</strong>: O SINDIPOSTO remeter&aacute; para as empresas, em tempo h&aacute;bil, as guias de recolhimento da referida contribui&ccedil;&atilde;o.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Disposições Gerais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras Disposições
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA PRIMEIRA - DA RATIFICA&#199;&#195;O
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Ficam ratificadas todas as demais cl&aacute;usulas e condi&ccedil;&otilde;es da Conven&ccedil;&atilde;o Coletiva de Trabalho n&atilde;o modificadas por este TERMO ADITIVO.</p>
+<p>&nbsp;</p>
+<p>Assim, por estarem justas e convencionadas, as partes assinam o presente Termo Aditivo e o encaminham &agrave; Superintend&ecirc;ncia Regional do Trabalho e Emprego em Goi&aacute;s, em tr&ecirc;s (03) vias de igual teor e forma, para registro e dep&oacute;sito.</p>
+<p>&nbsp;</p>
+<p>Goi&acirc;nia, Estado de Goi&aacute;s, aos quatro dias do m&ecirc;s de maio do ano de dois mil e vinte e seis.</p>
+                                                </label>
+                                                <br />
+                                    }
+                                    <br />
+                                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                    <br />
+    <br />
+    <label class="textonome">
+        MARCIO MARTINS DE CASTRO ANDRADE
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SIND DO COM VAREJISTA DE DERIV DE PETROLEO NO EST GOIAS
+        <br />
+        <br />
+    </label>
+
+    <br />
+    <br />
+    <label class="textonome">
+        NILTON VIEIRA LEITE
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SINDICATO DOS EMP. EM POSTOS DE SERV. DE COMB. LUBRIF. E DERIVADOS DE PETROLEO, LOJAS DE CONV. TROCA DE OLEO E LAVAJ. DE RIO VERDE E REG NO E.GO
+        <br />
+        <br />
+    </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        <br />
+                                        <center>
+                                            <label class="textogrupo">
+                                                <b>ANEXOS </b>
+                                            </label>
+                                        </center>
+                                                        <label>
+                                                            <b>
+                                                                <center>
+                                                                    <label class="textogrupo">
+                                                                        ANEXO I - ATA ASSEMBLEIA - PATRONAL
+                                                                    </label>
+                                                                </center>
+                                                                <label class="tituloClausula">
+                                                                                                                                    </label>
+                                                            </b>
+                                                        </label>
+                                                        <b>
+                                                            <label>
+
+                                                            </label>
+                                                        </b>
+                                                        <br />
+                                                        <label class="descricaoClausula" >
+                                                            <p><a href="https://www3.mte.gov.br/sistemas/mediador/imagemAnexo/MR025622_20262026_05_12T10_43_42.pdf" target="_blank">Anexo (PDF)</a></p>
+                                                        </label>
+                                                        <br />
+                                                        <label>
+                                                            <b>
+                                                                <center>
+                                                                    <label class="textogrupo">
+                                                                        ANEXO II - ATA ASSEMBLEIA - LABORAL
+                                                                    </label>
+                                                                </center>
+                                                                <label class="tituloClausula">
+                                                                                                                                    </label>
+                                                            </b>
+                                                        </label>
+                                                        <b>
+                                                            <label>
+
+                                                            </label>
+                                                        </b>
+                                                        <br />
+                                                        <label class="descricaoClausula" >
+                                                            <p><a href="https://www3.mte.gov.br/sistemas/mediador/imagemAnexo/MR025622_20262026_05_12T10_44_20.pdf" target="_blank">Anexo (PDF)</a></p>
+                                                        </label>
+                                                        <br />
+                                        <!--****************************************** FIM - Anexos ******************************************-->
+                                            <label class="texto">
+                                                &#160;&#160;&#160;&#160;A autenticidade deste documento poderá ser confirmada na
+                                                página do Ministerio do Trabalho e Emprego na Internet, no endereço http://www.mte.gov.br.
+                                            </label>
+                                            <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+<script>
+    setTimeout(function () {
+        window.history.replaceState({}, '', window.location.pathname);
+    }, 0);
+</script>
+</html>

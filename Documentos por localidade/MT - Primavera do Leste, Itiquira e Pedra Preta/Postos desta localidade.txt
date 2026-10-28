@@ -1,0 +1,27 @@
+﻿CCT DOS POSTOS — MT - Primavera do Leste, Itiquira e Pedra Preta
+Atualizado em 23/10/2026
+
+Situação: Vigente — confirmada no Mediador
+CCT: MT000191/2026
+Vigência: 01/03/2026 a 28/02/2027 (data-base 1º de março)
+Sindicato dos empregados: SINTRAPOSTOSSUL-MT — CNPJ 14.410.979/0001-80
+Sindicato patronal: Sind. Varejista de Derivados de Petróleo de MT — CNPJ 14.953.517/0001-00
+Termos aditivos: MT000219/2026 — contribuição assistencial; MT000319/2026 — contribuição patronal
+Piso do frentista: R$ 1.685,00 + periculosidade, desde 01/03/2026 (fonte: CCT MT000191/2026, cláusula de piso)
+Texto oficial / fonte: https://mediador.trabalho.gov.br/sistemas/mediador/Resumo/ResumoVisualizar?NrSolicitacao=MR027448/2026
+
+POSTOS (3)
+- ALVORADA DE PRIMAVERA — Primavera do Leste/MT
+    RUA DO COMÉRCIO, PARQUE INDUSTRIAL - 78.850-000 - PRIMAVERA DO LESTE - MT
+    Mapa: https://www.google.com/maps?q=-15.57510472,-54.32634694
+- ITIQUIRA — Itiquira/MT
+    ROD. BR 163, KM 10, S/N, ZONA RURAL - 78.790-000 - ITIQUIRA - MT
+    Mapa: https://www.google.com/maps?q=-17.4346205,-54.74821255
+- PEDRA PRETA — Pedra Preta/MT
+    ROD. BR 364, KM 175, S/N, JARDIM PRODOESTE - 78.795-000 - PEDRA PRETA - MT
+    Mapa: https://www.google.com/maps?q=-16.619859,-54.455968
+
+ARQUIVOS NESTA PASTA
+- CCT 2026-2027 - MT000191-2026.doc (texto registrado no Mediador; abre no Word)
+- Aditivo 2026 - contribuição assistencial - MT000219-2026.doc (texto registrado no Mediador; abre no Word)
+- Aditivo 2026 - contribuição patronal - MT000319-2026.doc (texto registrado no Mediador; abre no Word)

@@ -1,0 +1,35 @@
+﻿CCT DOS POSTOS — TO - Porto Nacional e Paraíso do Tocantins (sem CCT vigente)
+Atualizado em 23/10/2026
+
+Situação: CCT vencida, seguida pela Rede como referência
+CCT: CCT 2020/2022 (vencida, seguida pela Rede)
+Vigência: 01/03/2020 a 28/02/2022 (vencida) (data-base 1º de março)
+Sindicato dos empregados: SINTRAPOSTO-TO — CNPJ 07.823.409/0001-57
+Sindicato patronal: SINDIPOSTO-TO — CNPJ 37.344.843/0001-15
+Termos aditivos: TO000019/2021 — diferenças de 2020 na base de Araguaína e região; não muda nada nos postos da Rede, que são da base do SINTRAPOSTO-TO
+Piso do frentista: R$ 1.188,23 + 30% de periculosidade (R$ 1.544,70), desde 01/03/2021: são os R$ 1.118,65 de 01/01/2021 corrigidos pelo INPC de 6,22%. Esse valor ficou abaixo do salário mínimo nacional (R$ 1.621,00 em 2026), que é o piso legal. (fonte: CCT 2020/2022, cláusula 3ª; INPC de 03/2020 a 02/2021 (IBGE))
+Outras cláusulas:
+  - Auxílio-alimentação ou cesta básica: R$ 240,93 por mês desde 01/03/2021 (R$ 226,82 de 01/01/2021 corrigidos pelo INPC), pago até o 5º dia do mês (cláusula 17ª)
+  - Hora extra: 60% nos dias úteis e 100% em domingos e feriados (cláusula 11ª)
+  - Adicional noturno: 20%, das 22h às 5h (cláusula 12ª)
+  - Gratificação de caixa: 15% do salário-base, ou 23% na escala 12x36 (cláusula 10ª)
+  - Adiantamento: 50% da remuneração até o 3º dia útil da segunda quinzena (cláusula 8ª)
+  - Seguro de vida pago pela empresa, pela apólice do sindicato patronal: morte e invalidez por acidente R$ 9.000,00, assistência funeral R$ 3.000,00, morte do cônjuge ou de filho R$ 2.067,00 (cláusula 18ª, tabela do texto no Mediador)
+  - PLR fixada só para os anos-base 2019 (R$ 207,88) e 2020 (R$ 216,03) (cláusula 15ª)
+Texto oficial / fonte: https://www.sindiposto-to.com.br/site/paginas/14/acordos-e-convencoes
+
+POSTOS (3)
+- DU FIGUEIREDO I — Porto Nacional (Luzimangues)/TO
+    TREVO TO 080 COM TO 348 KM 16 S/N LUZIMANGUES - 77500000 - PORTO NACIONAL - TO
+    Mapa: https://www.google.com/maps?q=-10.19100139,-48.49426611
+- PARAÍSO DU FIGUEIREDO — Paraíso do Tocantins/TO
+    NEWTON JOSE DE MORAES TO 080 SANTA LUZIA, ZONA RURAL - 77.600-000 - TO
+    Mapa: https://www.google.com/maps?q=-10.13258972,-48.83649889
+- TERMINAL LUZIMANGUES — Porto Nacional (Luzimangues)/TO
+    GLB ZONA ESPECIAL DE NEGÓCIOS - ZEN II ETAPA - LUZIMANGUES - TO
+    Mapa: https://www.google.com/maps?q=-10.2384034,-48.5516061
+
+ARQUIVOS NESTA PASTA
+- VENCIDA - CCT 2020-2022 - Sintraposto-TO (referência).pdf (PDF baixado do site do sindicato)
+- Tabela de capitais do seguro de vida - MR003266-2021.png (tabela em imagem, tirada do texto registrado no Mediador)
+- Aditivo 2021 - diferenças de 2020 em Araguaína - TO000019-2021.doc (texto registrado no Mediador; abre no Word)
