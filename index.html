@@ -574,7 +574,9 @@
   .pend-pop .pend-corpo { margin: 0; }
   @media (max-width: 600px) { .pend-abrir { grid-template-columns: 30px minmax(0, 1fr); } .pend-ver { grid-column: 2; justify-self: start; } }
   .marca { flex: 1 1 auto; }
-  .achar { position: relative; flex: 0 1 380px; min-width: 240px; }
+  .achar { position: relative; flex: 0 1 340px; min-width: 220px; }
+  .topo-in { column-gap: 14px; }
+  .marca { margin-right: auto; }
   .achar-campo { position: relative; display: block; }
   .achar-campo svg { position: absolute; left: 13px; top: 11px; width: 17px; height: 17px; color: var(--navy-texto); pointer-events: none; transition: color .15s; }
   .achar-campo input { width: 100%; height: 40px; padding: 0 14px 0 38px; border: 0; border-radius: 999px; background: rgba(255, 255, 255, .12); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); font: 500 14px var(--fonte); color: #fff; transition: background .15s, box-shadow .15s, color .15s; }
@@ -595,6 +597,22 @@
   .ach-piso small::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--c); vertical-align: 1px; }
   .ach-piso .venc { color: var(--perigo-txt); }
   .achar-lista .ach-vazio { padding: 12px; color: var(--texto-2); }
+  .btn.vidro { background: rgba(255, 255, 255, .12); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22); }
+  .btn.vidro:hover { background: rgba(255, 255, 255, .2); color: #fff; }
+  .btn.vidro:focus-visible { outline-color: var(--laranja); }
+  .popup.envio-pop { width: min(640px, calc(100vw - 32px)); }
+  .envio-passos { margin: 4px 0 14px; padding-left: 22px; color: var(--titulo); }
+  .envio-passos li + li { margin-top: 6px; }
+  .envio-passos b { color: var(--texto); }
+  .envio-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .envio-lista a { display: block; padding: 9px 12px; border-radius: 10px; background: var(--grupo); color: var(--texto); text-decoration: none; transition: background .15s; }
+  .envio-lista a:hover { background: var(--primario-suave); }
+  .envio-lista b { display: block; font-weight: 600; }
+  .envio-lista small { display: block; font-size: 12px; color: var(--texto-2); }
+  .envio-lista .outros { grid-column: 1 / -1; }
+  .envio-lista .outros a { background: none; box-shadow: inset 0 0 0 1px var(--divisoria); }
+  .g-envio { margin: 18px 0 0; font-size: 13px; color: var(--texto-2); }
+  @media (max-width: 600px) { .envio-lista { grid-template-columns: 1fr; } #enviar-doc { flex: 1; } }
   tr.grupo .g-resumo { color: var(--texto-2); }
   tr.grupo.aberto .g-resumo { visibility: hidden; }
   tr.grupo .g-resumo.num { color: var(--texto); font-weight: 600; }
@@ -637,7 +655,7 @@
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
   @media print {
     body { background: #fff; }
-    .topo { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .abas-barra, #exportar-tudo, .achar, .ferramentas, .segmento, .gaveta, .gaveta-fundo, .pasta, .vb { display: none !important; }
+    .topo { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .abas-barra, #exportar-tudo, #enviar-doc, .g-envio, .achar, .ferramentas, .segmento, .gaveta, .gaveta-fundo, .pasta, .vb { display: none !important; }
     #imp-verbas article + article { break-before: page; }
     .popup, #bloco-verbas { display: none !important; } .vb-barra { position: static; margin: 0; padding: 0 0 8px; } .vg-seta, tr.grupo .vg-quem, .ufs-todos { display: none !important; } tr.linha.fechada { visibility: visible; } .qtd { color: inherit; text-decoration: none; }
     .vista[hidden], .pend[hidden] { display: block; }
@@ -666,6 +684,10 @@
       </label>
       <ul class="achar-lista" id="achar-lista" role="listbox" aria-label="Postos achados" hidden></ul>
     </div>
+    <button type="button" class="btn vidro" id="enviar-doc" data-acao="enviar" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/></svg>
+      Enviar documento
+    </button>
     <button class="btn claro" id="exportar-tudo" title="Baixa a planilha completa, com as mesmas abas desta página">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
       Baixar a planilha
@@ -833,7 +855,7 @@ function abrirPostos(ids) {
   const lista = c => `<ul class="pp-lista">${[...postosDa(c)].sort((a, b) => a.muni.localeCompare(b.muni, 'pt') || a.nome.localeCompare(b.nome, 'pt')).map(p =>
     `<li><button type="button" data-acao="posto" data-i="${D.postos.indexOf(p)}"><b>${esc(p.nome)}</b><span>${esc(p.muni)}/${p.uf}</span><small>${esc(p.end)}</small></button></li>`).join('')}</ul>`;
   const sub = um ? `Com a convenção ${esc(cctCurto(cs[0]))}: ${esc(cs[0].uf)}, ${esc(cs[0].localidade)}.` : `Com ${plural(cs.length, 'convenção', 'convenções')}: ${juntar(cs.map(c => esc(c.curto || `${c.uf}, ${c.localidade}`)))}.`;
-  popup.classList.remove('pend-pop');
+  popup.classList.remove('pend-pop', 'envio-pop');
   popup.innerHTML = `<div class="pp-cab"><div><h2 id="pp-titulo">${plural(ps.length, 'posto', 'postos')}</h2><p>${sub}</p></div><button type="button" class="g-fechar" data-acao="fechar-popup" aria-label="Fechar">${ICONE.fechar}</button></div>
     <div class="pp-corpo">${um ? lista(cs[0]) : cs.filter(c => postosDa(c).length).map(c => `<h3>${esc(c.uf)}, ${esc(c.localidade)}<small>${esc(cctCurto(c))}, ${plural(postosDa(c).length, 'posto', 'postos')}</small></h3>${lista(c)}`).join('')}</div>
     <div class="pp-pe"><span>Clique num posto para ver endereço, piso e sindicatos.</span>${um ? `<button type="button" class="btn contorno" data-acao="filtrar-cct" data-id="${cs[0].id}">Ver na lista de postos</button>` : ''}</div>`;
@@ -1044,7 +1066,25 @@ const tamanho = kb => kb < 1024 ? `${kb} KB` : `${(kb / 1024).toLocaleString('pt
 const listaArquivos = c => `<ul class="arquivos">${arquivosDe(c).map(a => { const t = tipoArq(a.nome);
   return `<li><a class="arq" href="${docUrl(c, a.nome)}" target="_blank" rel="noopener"><span class="arq-tipo ${t.cls}" aria-hidden="true">${t.rot}</span><span class="arq-nome">${esc(a.nome.replace(/\.\w+$/, ''))}<small>${t.desc}${a.kb ? `, ${tamanho(a.kb)}` : ''}</small></span><span class="arq-abrir">Abrir</span></a></li>`; }).join('')}</ul>`;
 const htmlDocs = c => cabGaveta(`${esc(c.uf)}, ${esc(c.localidade)}`, 'Documentos', `<p class="g-sobre">${esc(c.cct)}</p>`) + `<div class="g-corpo">${listaArquivos(c)}
-  <div class="g-acoes"><button type="button" class="btn contorno" data-acao="cct" data-id="${c.id}">Ver a convenção</button>${linkFonte(c)}</div></div>`;
+  <div class="g-acoes"><button type="button" class="btn contorno" data-acao="cct" data-id="${c.id}">Ver a convenção</button>${linkFonte(c)}</div>
+  <p class="g-envio">Chegou um documento novo desta convenção? <a href="${ENVIO}${encodeURIComponent(c.id)}" target="_blank" rel="noopener">Enviar o documento</a></p></div>`;
+const ENVIO = 'https://github.com/pedroarthur-sr06/cct-postos/upload/main/recebidos/';
+function abrirEnvio() {
+  const item = c => `<li><a href="${ENVIO}${encodeURIComponent(c.id)}" target="_blank" rel="noopener"><b>${esc(c.uf)}, ${esc(c.localidade)}</b><small>${esc(cctCurto(c))}, ${plural(postosDa(c).length, 'posto', 'postos')}</small></a></li>`;
+  const ccts = [...D.ccts].sort((a, b) => ORDEM_UF.indexOf(a.uf) - ORDEM_UF.indexOf(b.uf) || a.localidade.localeCompare(b.localidade, 'pt'));
+  popup.classList.remove('pend-pop'); popup.classList.add('envio-pop');
+  popup.innerHTML = `<div class="pp-cab"><div><h2 id="pp-titulo">Enviar documento recebido</h2><p>Convenção, aditivo ou tabela salarial que chegou por e-mail, do posto, do contador ou do sindicato.</p></div><button type="button" class="g-fechar" data-acao="fechar-popup" aria-label="Fechar">${ICONE.fechar}</button></div>
+    <div class="pp-corpo">
+      <ol class="envio-passos">
+        <li><b>Escolha de qual convenção é o documento.</b> Abre a página de envio do GitHub, que pede login com uma conta que tenha acesso.</li>
+        <li><b>Arraste o arquivo</b> (PDF ou .doc) e, no campo de baixo, escreva de onde veio, por exemplo "enviado pelo contador".</li>
+        <li><b>Clique em "Commit changes".</b> O documento é lido automaticamente, e o DP confere antes de a consulta mudar.</li>
+      </ol>
+      <ul class="envio-lista">${ccts.map(item).join('')}<li class="outros"><a href="${ENVIO}outros" target="_blank" rel="noopener"><b>Não sei de qual convenção</b><small>O documento é lido e a convenção é descoberta pelo conteúdo</small></a></li></ul>
+    </div>
+    <div class="pp-pe"><span>Nada muda na consulta antes da conferência do DP.</span></div>`;
+  popup.showModal(); popup.querySelector('.pp-corpo').scrollTop = 0;
+}
 function htmlPosto(p) {
   const c = cctPor[p.cct];
   return cabGaveta(`${esc(p.muni)}/${p.uf}`, esc(p.nome), sitHTML(c.situacao)) + `<div class="g-corpo">
@@ -1122,7 +1162,7 @@ const corpoPend = (p, x) => `<dl class="pend-corpo">
   </dl>`;
 function abrirPendencia(n) {
   const p = abertas.find(a => a.n === n), x = (D.pendExplica || {})[n]; if (!p || !x) return;
-  popup.classList.add('pend-pop');
+  popup.classList.remove('envio-pop'); popup.classList.add('pend-pop');
   popup.innerHTML = `<div class="pp-cab"><div><p class="pp-sobre">Pendência ${p.n}</p><h2 id="pp-titulo">${esc(p.onde)}</h2>${postosPend(x)}</div><button type="button" class="g-fechar" data-acao="fechar-popup" aria-label="Fechar">${ICONE.fechar}</button></div>
     <div class="pp-corpo">${corpoPend(p, x)}</div>
     <div class="pp-pe"><span>O número é o mesmo da aba Pendências abertas da planilha.</span></div>`;
@@ -1283,6 +1323,7 @@ document.addEventListener('click', e => {
   if (a === 'fechar') fecharGaveta();
   else if (a === 'ver-postos') abrirPostos(t.dataset.ids.split(' '));
   else if (a === 'fechar-popup') fecharPopup();
+  else if (a === 'enviar') abrirEnvio();
   else if (a === 'pend') { fecharGaveta(); abrirPendencia(+t.dataset.n); }
   else if (a === 'vb-grupo') { const d = document.getElementById(t.dataset.alvo); d.open = true; realcar(d.querySelector('summary')); }
   else if (a === 'grupo-uf') grupoUf(t.dataset.uf, !t.classList.contains('aberto'));
